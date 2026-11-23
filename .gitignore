@@ -1,0 +1,7 @@
+bin/
+obj/
+tools/obj/
+.godot/
+.vs/
+Mod/RelicForge/
+*.pdb
