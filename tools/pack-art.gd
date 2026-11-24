@@ -1,8 +1,6 @@
 extends SceneTree
 
 const RESOURCE_ROOT = "res://aaacode_relic_forge/art"
-const DETAILS = Vector2i(256, 256)
-const SMALL = Vector2i(64, 64)
 
 func _initialize() -> void:
 	var args := OS.get_cmdline_user_args()
@@ -17,6 +15,12 @@ func _initialize() -> void:
 	if small_files.size() != expected or small_files != png_files(art_dir.path_join("detail")):
 		fail("The detail and small directories must contain the same %d PNG names." % expected)
 		return
+	var layout_path := art_dir.path_join("IconLayout.json")
+	var parsed: Variant = JSON.parse_string(FileAccess.get_file_as_string(layout_path))
+	if not parsed is Dictionary or parsed.size() != expected:
+		fail("IconLayout.json must describe every relic texture.")
+		return
+	var layout: Dictionary = parsed
 	if DirAccess.make_dir_recursive_absolute(scratch) != OK:
 		fail("Could not create the scratch directory.")
 		return
@@ -28,7 +32,8 @@ func _initialize() -> void:
 		var name := filename.get_basename()
 		var icon := Image.load_from_file(art_dir.path_join("small").path_join(filename))
 		var detail := Image.load_from_file(art_dir.path_join("detail").path_join(filename))
-		if not correct_image(icon, SMALL) or not correct_image(detail, DETAILS):
+		var dimensions: Dictionary = layout.get(name, {})
+		if not correct_image(icon, dimensions.get("small", [])) or not correct_image(detail, dimensions.get("detail", [])):
 			fail("Invalid or opaque sprite: " + filename)
 			return
 		if not add_texture(packer, icon, scratch, "small", name) or \
@@ -50,8 +55,9 @@ func png_files(directory: String) -> PackedStringArray:
 			pngs.append(file)
 	return pngs
 
-func correct_image(image: Image, size: Vector2i) -> bool:
-	return image != null and not image.is_empty() and image.get_size() == size and \
+func correct_image(image: Image, size: Array) -> bool:
+	return size.size() == 2 and image != null and not image.is_empty() and \
+		image.get_size() == Vector2i(int(size[0]), int(size[1])) and \
 		image.detect_alpha() != Image.ALPHA_NONE and image.get_used_rect().has_area()
 
 func add_texture(packer: PCKPacker, image: Image, scratch: String, size: String, name: String) -> bool:

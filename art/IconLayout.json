@@ -1,0 +1,1712 @@
+{
+  "burning_blood": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "ring_of_the_snake": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "divine_right": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "bound_phylactery": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "cracked_core": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "song_bow": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "book_of_five_rings": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "juzu_bracelet": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "bag_of_preparation": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "fencing_manual": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "venerable_tea_set": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "blood_vial": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "happy_flower": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "snecko_skull": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "bag_of_marbles": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "oddly_smooth_stone": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "strike_dummy": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "gorget": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "pendulum": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "data_disk": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "lantern": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "centennial_puzzle": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "regal_pillow": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "amethyst_aubergine": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "red_skull": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "red_mask": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "festive_popper": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "vajra": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "bronze_scales": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "anchor": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "meal_ticket": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "bone_flute": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "exercise_mat": {
+    "small": [
+      256,
+      256
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "book_repair_knife": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "symbiotic_virus": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "nunchaku": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "lasting_candy": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "regalite": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "bowler_hat": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "gremlin_horn": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "orichalcum": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "tiny_mailbox": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "letter_opener": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "miniature_cannon": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "twisted_funnel": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "parrying_shield": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "lucky_fysh": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "galactic_dust": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "mercury_hourglass": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "permafrost": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "eternal_feather": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "ripple_basin": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "planisphere": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "candelabra": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "reptile_trinket": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "petrified_toad": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "stone_cracker": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "ornamental_fan": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "paper_phrog": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "pantograph": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "vambrace": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "self_forming_clay": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "horn_cleat": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "funerary_mask": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "akabeko": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "joss_paper": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "pen_nib": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "tingsha": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "kusarigama": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "gold_plated_cables": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "sparkling_rouge": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "tuning_fork": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "whittling_knife": {
+    "small": [
+      256,
+      256
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "ocarina": {
+    "small": [
+      256,
+      256
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "white_beast_statue": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "white_star": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "ice_cream": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "unsettling_lamp": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "rainbow_ring": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "orange_dough": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "big_hat": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "meat_on_the_bone": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "chandelier": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "captains_wheel": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "cloak_clasp": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "gambling_chip": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "vexing_puzzlebox": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "fertilizer": {
+    "small": [
+      256,
+      256
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "bellows": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "intimidating_helmet": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "twine": {
+    "small": [
+      256,
+      256
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "pocketwatch": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "sturdy_clamp": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "metronome": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "tough_bandages": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "charons_ashes": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "kunai": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "stone_calendar": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "helical_dart": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "mini_regent": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "power_cell": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "game_piece": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "emotion_chip": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "shuriken": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "bookmark": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "art_of_war": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "ruined_helmet": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "razor_tooth": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "ivory_tile": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "lunar_pastry": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "paper_krane": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "conductors_baton": {
+    "small": [
+      256,
+      256
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "dingy_rug": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "undying_sigil": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "runic_capacitor": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "toolbox": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "screaming_flagon": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "bread": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "bizarre_lamp": {
+    "small": [
+      256,
+      256
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "burning_sticks": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "ninja_scroll": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "lava_lamp": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "ringing_triangle": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "mystic_lighter": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "the_abacus": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "vitruvian_minion": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "belt_buckle": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "sling_of_courage": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "wing_charm": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "jeweled_mask": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "sai": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "blessed_antler": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "spiked_gauntlets": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "fishing_rod": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "radiant_pearl": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "driftwood": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "booming_conch": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "toasty_mittens": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "seal_of_gold": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "prismatic_gem": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "glitter": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "pumpkin_candle": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "paels_legion": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "paels_tears": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "paels_flesh": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "paels_blood": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "paels_wing": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "crossbow": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "stone_humidifier": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "very_hot_cocoa": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "iron_club": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "throwing_axe": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "philosophers_stone": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "choices_paradox": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "brilliant_scarf": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "music_box": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "war_hammer": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "diamond_diadem": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "mr_struggles": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "dream_catcher": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "the_boot": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "fresnel_lens": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "daughter_of_the_wind": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "obsidian_vice": {
+    "small": [
+      256,
+      256
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "pollinous_core": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "tormentous_collar": {
+    "small": [
+      256,
+      256
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "lost_wisp": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "mighty_wings": {
+    "small": [
+      256,
+      256
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "hand_drill": {
+    "small": [
+      85,
+      85
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "forgotten_soul": {
+    "small": [
+      256,
+      256
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  },
+  "bath_towel": {
+    "small": [
+      256,
+      256
+    ],
+    "detail": [
+      256,
+      256
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # 杀戮尖塔 2 · 遗物升级
 
-遗物升级 v0.113.1.1 对应《杀戮尖塔 2》v0.113.1，适用于单人标准模式，需要 BaseLib v3.4.8。源码在 `src`，图标 PNG 在 `art`。
+遗物升级 v0.113.1.2 对应《杀戮尖塔 2》v0.113.1，适用于单人标准模式，需要 BaseLib v3.4.8。源码在 `src`，图标 PNG 在 `art`。
 
 Mod 版本号采用 `游戏版本.更新序号`。同一游戏版本下从 `.1` 开始，后续更新依次使用 `.2`、`.3`。适配新游戏版本时，更新前三段并从 `.1` 重新计数。游戏清单采用加载器支持的格式，例如 `0.113.1-1` 对应 Mod `v0.113.1.1`。
 
@@ -24,4 +24,4 @@ Mod 版本号采用 `游戏版本.更新序号`。同一游戏版本下从 `.1` 
 
 将 `$gameDir` 和 `$baseLibDir` 设为游戏和 BaseLib 的安装目录。构建产物在 `Mod/RelicForge`，首次构建会一并生成 `RelicForge.pck`。
 
-更换图标时，把同名 PNG 放进 `art/small` 和 `art/detail`，尺寸分别为 64 × 64 和 256 × 256。文件名使用原遗物 ID 的小写，例如 `anchor.png`。运行 `./tools/Pack-Art.ps1 -GameDir $gameDir` 重新生成 `RelicForge.pck`。
+更换图标时，把透明 PNG 放进 `art/small` 和 `art/detail`。文件名使用原遗物 ID 的小写，例如 `anchor.png`。每件遗物的两种尺寸见 `art/IconLayout.json`。运行 `./tools/Pack-Art.ps1 -GameDir $gameDir` 重新生成 `RelicForge.pck`。

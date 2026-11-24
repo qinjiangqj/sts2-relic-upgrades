@@ -204,7 +204,7 @@ internal sealed class RelicUpgradeScreen(IReadOnlyList<ForgeService.Choice> choi
             child.QueueFree();
         }
         _comparisonCards.AddChild(ComparisonCard("RelicBefore", ForgeText.Pick("升级前", "Before"),
-            choice.Source.Title.GetFormattedText(), choice.Source.DynamicDescription.GetFormattedText(), choice.Source.Icon, upgraded: false));
+            choice.Source.Title.GetFormattedText(), choice.Source.DynamicDescription.GetFormattedText(), choice.Source.BigIcon, upgraded: false));
         var arrow = TextLabel("→", 30, Gold);
         arrow.VerticalAlignment = VerticalAlignment.Center;
         _comparisonCards.AddChild(arrow);
