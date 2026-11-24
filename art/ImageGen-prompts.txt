@@ -169,28 +169,20 @@ Mod upgrade idea: 三块铜鳞斜叠成窄甲片，最上方两块的外缘翻�
 Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
 
 [ANCHOR]
-undefined
-Original's recognizable detail: 海蓝弯爪、圆眼和斜扣麻绳.
-Mod upgrade idea: 主锚下横向叠一副短爪，两排爪都由同一根锚柄穿过，柄顶保留露空眼环和斜扣绳。 一根斜柄上可数出两层爪尖。
-Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
+Generate an original upgraded prop sprite for a stylized fantasy card-game inventory. The supplied original is a design reference: retain its identity, main material, orientation, shape weight and short color scale. The new physical feature must change one major silhouette or color shape in a way that reads at icon size. Make the feature say what changed, without tracing or directly reusing source pixels. Use broad hand-painted two-tone value shapes, restrained texture, and no photorealism, thick dark sticker stroke, generic magical glow, lettering, platforms, dust or shadows. One compact object cluster on clean true transparent alpha.
+Draw a blue anchor turned diagonally just as in the reference, with the pale short crosspiece and round eye at the top. Redesign the lower arms into a strongly forked double-fluke silhouette: two distinct broad tips extending from each side, with cut-through negative space between the front and rear layers. Make the second set of larger hooks visible from both sides even at 40px. Stay in the reference's slate-blue palette, use one brighter blue face to light the extra steel, and omit rope, wheels and other symbols.
 
 [MEAL_TICKET]
-undefined
-Original's recognizable detail: 青蓝餐券外框与奶黄餐印.
-Mod upgrade idea: 把青蓝餐券折成两联相连的厚票，外联保留浅色圆餐印，内联从侧边露一枚缺角。 青蓝双联票有两个错开的缺角。
-Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
+Generate an original upgraded prop sprite for a stylized fantasy card-game inventory. The supplied original is a design reference: retain its identity, main material, orientation, shape weight and short color scale. The new physical feature must change one major silhouette or color shape in a way that reads at icon size. Make the feature say what changed, without tracing or directly reusing source pixels. Use broad hand-painted two-tone value shapes, restrained texture, and no photorealism, thick dark sticker stroke, generic magical glow, lettering, platforms, dust or shadows. One compact object cluster on clean true transparent alpha.
+Preserve a blue admission-ticket-shaped coupon with a wavy corner, warm cream border and the original slight upward tilt. Upgrade it to a traveler’s bound pair of coupons, with a clearly visible short warm saffron stub protruding from the lower-right and fastened by a broad rusty-orange seal embossed with a tiny cream bowl. Keep the blue ticket dominant and the yellow-orange accent concentrated in the one attached stub, large enough to read at 40px.
 
 [BONE_FLUTE]
-undefined
-Original's recognizable detail: 暖棕骨节管上的大小孔.
-Mod upgrade idea: 鼓起的骨笛头接一截带孔的侧筒，两管并行，头部各有小吹口。 长主管旁搭一段短副管。
-Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
+Generate an original upgraded prop sprite for a stylized fantasy card-game inventory. The supplied original is a design reference: retain its identity, main material, orientation, shape weight and short color scale. The new physical feature must change one major silhouette or color shape in a way that reads at icon size. Make the feature say what changed, without tracing or directly reusing source pixels. Use broad hand-painted two-tone value shapes, restrained texture, and no photorealism, thick dark sticker stroke, generic magical glow, lettering, platforms, dust or shadows. One compact object cluster on clean true transparent alpha.
+Preserve a warm ochre diagonal carved bone flute with three dark holes and the original knobby ends. Turn it into a two-voiced flute: alongside the dominant original long flute, add a second visibly separate shorter hollow bone pipe, lashed to it at the middle with a short dark ochre band. The shorter tube occupies roughly one-third of the total width and shows a prominent round opening. Maintain recognizable bone instead of brass or wood, and keep the diagonal pose and hand-painted flat color.
 
 [EXERCISE_MAT]
-undefined
-Original's recognizable detail: 对折的赭橙垫和粗包边.
-Mod upgrade idea: 保留赭橙垫一段翻起的折形，近端稍卷，让切边露出压缩的 S 形回弹夹层。 展开的橙垫脚和卷端厚夹层。
-Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
+Generate an original upgraded prop sprite for a stylized fantasy card-game inventory. The supplied original is a design reference: retain its identity, main material, orientation, shape weight and short color scale. The new physical feature must change one major silhouette or color shape in a way that reads at icon size. Make the feature say what changed, without tracing or directly reusing source pixels. Use broad hand-painted two-tone value shapes, restrained texture, and no photorealism, thick dark sticker stroke, generic magical glow, lettering, platforms, dust or shadows. One compact object cluster on clean true transparent alpha.
+Keep the ochre-orange foam mat with two recognizable hinged folded planes. Clearly change the front section by rolling its front third up into a wide, thick tension roll, exposing a bold darker terracotta spiral at the right end, and bind it with a wide ochre-gold strap. The wide roll is the new foreground silhouette and occupies roughly the bottom quarter. Keep the upright back plane, orange foam, few cel-shaded planes and compact layout.
 
 [BOOK_REPAIR_KNIFE]
 undefined
@@ -205,10 +197,8 @@ Mod upgrade idea: 椭圆孢囊张开半边壳，壳内聚着一颗体积明显�
 Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
 
 [NUNCHAKU]
-undefined
-Original's recognizable detail: 两个红木长柄与短钢链.
-Mod upgrade idea: 两根短棍在不同方向拉开，短链自然弯成回旋弧，端头用大箍锁住。 两柄错开夹着一条粗弧链。
-Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
+One original upgraded fantasy card-game inventory illustration. The supplied native sprite is the reference for hue, scale, orientation, materials and distinctive main parts; invent the specified structural improvement while retaining the source object's identity. Create a noticeably new shape with one upgrade cue clear at game-icon size. Draw flat two-tone or three-tone hand-painted shading, restrained saturation, clean irregular edges. True transparent background. No writing, platform, background haze, shiny 3D, continuous sticker outline or extra props.
+Make one nonfunctional decorative festival prop based on the reference's paired red lacquered rods and a loosely arcing metallic link. Keep two short red rods and their red-and-ochre palette. Add wide aged-copper faceted bands on the lower third of both red rods to complement the original narrow copper necks. Make these two thicker matching bands large enough to read at 40px. Preserve the overall angled compact arrangement and present it as a static carved toy ornament.
 
 [LASTING_CANDY]
 Generate one original, clearly distinguishable upgraded inventory relic sprite using Image 1 as the design and scale reference for the baseline. It should look like the same recognizable item after a modest, visible fantasy upgrade. Stay close to the reference's orientation, aspect balance, silhouette weight, geometry of the major parts, edge softness, short value range and palette. Reillustrate locally around the upgrade: retain the visible concept and placement rather than tracing or reproducing the reference pixels. The rendition must be an upgraded asset with the specified distinct feature, not a stock replica. Hand-drawn 2D flat color with restrained cel shadows, tiny tasteful brush marks and limited highlights; no 3D, no heavy sticker stroke, chrome, black keyline, cinematic lighting, or decorative extras. Center one flat prop on true transparent alpha, no opaque backdrop, haze, glow, shadow, platform, words or watermark. The feature must still read on an 80px texture and a small in-game relic bar.
@@ -233,10 +223,8 @@ Mod upgrade idea: 弯兽角的吹口加包束，宽口外翻，角身系一块�
 Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
 
 [ORICHALCUM]
-undefined
-Original's recognizable detail: 绿色斜锭和大小梯面.
-Mod upgrade idea: 让绿色梯形锭分成两块沿斜铰合拢的护板，板缝像一段厚重合页，仍保留锭端坡面。 两片绿板之间的斜搭接缝。
-Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
+One original upgraded fantasy card-game inventory illustration. The supplied native sprite is the reference for hue, scale, orientation, materials and distinctive main parts; invent the specified structural improvement while retaining the source object's identity. Create a noticeably new shape with one upgrade cue clear at game-icon size. Draw flat two-tone or three-tone hand-painted shading, restrained saturation, clean irregular edges. True transparent background. No writing, platform, background haze, shiny 3D, continuous sticker outline or extra props.
+The original bright green angular ingot has been forged outward into a compact beveled shield. Keep its emerald metal color and the gleaming oblique trapezoid face as a prominent raised central boss. Add a broad green rim and clearly visible shield shoulders narrowing into a faceted point. Viewed at the original diagonal three-quarter angle, still looks made from that ingot. The new shield outline must be visible at 40 px.
 
 [TINY_MAILBOX]
 undefined
@@ -245,25 +233,20 @@ Mod upgrade idea: 保留红方箱的侧铰板和前扣，箱盖上翻，箱口�
 Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
 
 [LETTER_OPENER]
-undefined
-Original's recognizable detail: 亮金长刃与蓝绳坠.
-Mod upgrade idea: 把开信刀画成三折短刃的展开态，一段直刃、两处明显折轴，柄里露出槽。 锯折状刃背与双铰点。
-Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
+One original upgraded fantasy card-game inventory illustration. The supplied native sprite is the reference for hue, scale, orientation, materials and distinctive main parts; invent the specified structural improvement while retaining the source object's identity. Create a noticeably new shape with one upgrade cue clear at game-icon size. Draw flat two-tone or three-tone hand-painted shading, restrained saturation, clean irregular edges. True transparent background. No writing, platform, background haze, shiny 3D, continuous sticker outline or extra props.
+Keep the original wide yellow-gold letter opener blade and the round handle opening with a blue tassel curled at the base. The upgrade visibly widens the blade near the base and inlays three broad navy chevrons across that wide gold face, spaced apart like three decorative calligraphy marks. Antique stationery only. Do not narrow the blade into a needle or saw; do not add extra blades. Same diagonal orientation and surrounding footprint.
 
 [MINIATURE_CANNON]
-Draw a new simple fantasy card-game inventory icon of a tiny decorative wooden trolley carrying a short gray stone cylinder. Use Image 1 for its compact diagonal silhouette, the muted blue-gray top shape and prominent ochre spoked wheel. This is a carved solid toy ornament. For its upgraded detail, add a pale worn metal ring on the edge of its stone cylinder and one visible brass hinge under it. Keep the same single chunky wheel, diagonal arrangement, silhouette size, restrained two-tone hand-painted finish. Transparent background with no floor, shadow, text, frame, or decorative effects.
+One original upgraded fantasy card-game inventory illustration. The supplied native sprite is the reference for hue, scale, orientation, materials and distinctive main parts; invent the specified structural improvement while retaining the source object's identity. Create a noticeably new shape with one upgrade cue clear at game-icon size. Draw flat two-tone or three-tone hand-painted shading, restrained saturation, clean irregular edges. True transparent background. No writing, platform, background haze, shiny 3D, continuous sticker outline or extra props.
+A tiny carved, non-functional toy trolley, with the original oversized ochre spoked wheel and a short chunky blue-gray toy cylinder pointing diagonally upper left. Two bold worn brass bands wrap the outside of the toy cylinder, giving a strong warm-cool contrast and a clearly upgraded silhouette. The sculpture has a solid capped face, one wooden axle and no moving apparatus. Same palette, large wheel and compact ratio.
 
 [TWISTED_FUNNEL]
-undefined
-Original's recognizable detail: 浅黄片斗与弯出的底管.
-Mod upgrade idea: 漏斗的喉管分成两道曲折短阀，上宽下窄保留漏斗外形。 一个斗口下坠两支管口。
-Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
+One original upgraded fantasy card-game inventory illustration. The supplied native sprite is the reference for hue, scale, orientation, materials and distinctive main parts; invent the specified structural improvement while retaining the source object's identity. Create a noticeably new shape with one upgrade cue clear at game-icon size. Draw flat two-tone or three-tone hand-painted shading, restrained saturation, clean irregular edges. True transparent background. No writing, platform, background haze, shiny 3D, continuous sticker outline or extra props.
+Preserve the tilted pale olive-yellow metal funnel cup and thin side loop. Replace the single bent spout with a clear Y-shaped fork cut from the same material. The two outlets flare apart into visibly wide separate tips. Leave one dark transparent opening between the outlets and use two-tone olive patches only. The split should read immediately at 40 px and the original tilted cup must stay dominant.
 
 [PARRYING_SHIELD]
-undefined
-Original's recognizable detail: 圆灰盾和斜立的小中心挡片.
-Mod upgrade idea: 斜盾中心凸脊向前顶起，沿最低的一边长出短横挡和单个反钩。 带凸脊的斜盾与一枚下钩。
-Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
+One original upgraded fantasy card-game inventory illustration. The supplied native sprite is the reference for hue, scale, orientation, materials and distinctive main parts; invent the specified structural improvement while retaining the source object's identity. Create a noticeably new shape with one upgrade cue clear at game-icon size. Draw flat two-tone or three-tone hand-painted shading, restrained saturation, clean irregular edges. True transparent background. No writing, platform, background haze, shiny 3D, continuous sticker outline or extra props.
+Keep the same scuffed gray round shield, with its round rim seen at a three-quarter angle. Replace the small central boss with a broad steel wedge jutting visibly to the side, like the short blunt ram on a fantasy knight shield. The new prism projects partly past the side of the rim and has two distinctly lit planes. Use rough gray slate palette, no ornament, gems or spikes around the perimeter.
 
 [LUCKY_FYSH]
 undefined
@@ -272,16 +255,12 @@ Mod upgrade idea: 胖鱼的两条夸张侧鳍一前一后分开，嘴里半含�
 Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
 
 [GALACTIC_DUST]
-undefined
-Original's recognizable detail: 蓝色斜瓶口溢出的金尘.
-Mod upgrade idea: 保留斜开的蓝瓶及金尘，把瓶口铆上一枚有缺口的宽护环，喷出的尘只绕环画半周。 开口蓝瓶端头围着金尘半环。
-Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
+One original upgraded fantasy card-game inventory illustration. The supplied native sprite is the reference for hue, scale, orientation, materials and distinctive main parts; invent the specified structural improvement while retaining the source object's identity. Create a noticeably new shape with one upgrade cue clear at game-icon size. Draw flat two-tone or three-tone hand-painted shading, restrained saturation, clean irregular edges. True transparent background. No writing, platform, background haze, shiny 3D, continuous sticker outline or extra props.
+Keep the diagonal cobalt-blue capsule bottle and ochre-gold star dust spilling from its lower mouth. Upgrade the blue container with one broad cutaway section of transparent pale blue glass on its side, revealing a large pool of golden glitter inside. A pronounced aged gold collar around that glass distinguishes the upgraded form. Keep blue dominant, keep the original pose and single bottle, and cluster all dust tightly with the bottle.
 
 [MERCURY_HOURGLASS]
-undefined
-Original's recognizable detail: 细长的玻璃腰和上下银滴.
-Mod upgrade idea: 将沙漏放成微斜，银滴汇成上下相向的弯潮，两端仍有坚实框架。 沙漏腰两侧成对的月牙银潮。
-Apply just the smallest visible design change that conveys that idea. Refer to the provided sprite to retain its exact palette family and its main object and materials. If the idea changes the base palette, substantial components, silhouette, placement or pose, keep what the reference shows and express the upgrade with a small modification on that same object.
+One original upgraded fantasy card-game inventory illustration. The supplied native sprite is the reference for hue, scale, orientation, materials and distinctive main parts; invent the specified structural improvement while retaining the source object's identity. Create a noticeably new shape with one upgrade cue clear at game-icon size. Draw flat two-tone or three-tone hand-painted shading, restrained saturation, clean irregular edges. True transparent background. No writing, platform, background haze, shiny 3D, continuous sticker outline or extra props.
+Maintain the original S-shaped transparent flask full of cold blue-gray mercury and antique brown top and base. Add one stout curved bronze side support with three distinct round golden tick studs, each visible at a game icon size. Keep the opposite side open and the glass body dominant. Three simple marker studs and one frame are the visible upgrade. No text or extra floating elements.
 
 [PERMAFROST]
 undefined

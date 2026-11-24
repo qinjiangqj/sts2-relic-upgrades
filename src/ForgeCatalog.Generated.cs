@@ -264,7 +264,7 @@ public sealed class ForgedNunchaku : CatalogRelic
 {
     internal override string MaterialId => "NUNCHAKU";
     internal override RelicModel Original => ModelDb.Relic<Nunchaku>();
-    internal override string ChineseName => "回旋双截棍";
+    internal override string ChineseName => "铜节双截棍";
     internal override string ChineseEffect => "每累计打出10张攻击牌获得1点能量。触发的攻击若使敌人失去生命，再抽1张牌。升级时继承原计数。";
 }
 
@@ -304,7 +304,7 @@ public sealed class ForgedOrichalcum : CatalogRelic
 {
     internal override string MaterialId => "ORICHALCUM";
     internal override RelicModel Original => ModelDb.Relic<Orichalcum>();
-    internal override string ChineseName => "自合护板";
+    internal override string ChineseName => "奥利哈钢盾";
     internal override string ChineseEffect => "回合结束时若格挡为0，获得6点格挡。若本回合还没有打出技能牌，改为获得8点格挡。";
 }
 
@@ -320,7 +320,7 @@ public sealed class ForgedLetterOpener : CatalogRelic
 {
     internal override string MaterialId => "LETTER_OPENER";
     internal override RelicModel Original => ModelDb.Relic<LetterOpener>();
-    internal override string ChineseName => "三折拆信刀";
+    internal override string ChineseName => "三纹开信刀";
     internal override string ChineseEffect => "每回合每打出3张技能牌，对所有敌人造成5点伤害。该回合首次触发时，若这三张技能牌的名称互不相同，额外抽1张。";
 }
 
@@ -328,7 +328,7 @@ public sealed class ForgedMiniatureCannon : CatalogRelic
 {
     internal override string MaterialId => "MINIATURE_CANNON";
     internal override RelicModel Original => ModelDb.Relic<MiniatureCannon>();
-    internal override string ChineseName => "验膛小炮";
+    internal override string ChineseName => "铜箍小炮";
     internal override string ChineseEffect => "已升级的攻击牌额外造成3点伤害。每场首次用已升级的攻击牌击杀非爪牙敌人时，获得1点能量。";
 }
 
@@ -336,7 +336,7 @@ public sealed class ForgedTwistedFunnel : CatalogRelic
 {
     internal override string MaterialId => "TWISTED_FUNNEL";
     internal override RelicModel Original => ModelDb.Relic<TwistedFunnel>();
-    internal override string ChineseName => "双阀毒漏斗";
+    internal override string ChineseName => "双口漏斗";
     internal override string ChineseEffect => "战斗开始时向全体敌人施加4层中毒。第2回合开始时，再为仍处于中毒的敌人各补2层。";
 }
 
@@ -344,7 +344,7 @@ public sealed class ForgedParryingShield : CatalogRelic
 {
     internal override string MaterialId => "PARRYING_SHIELD";
     internal override RelicModel Original => ModelDb.Relic<ParryingShield>();
-    internal override string ChineseName => "反击盾";
+    internal override string ChineseName => "撞角圆盾";
     internal override string ChineseEffect => "回合结束时若格挡至少为10，对随机敌人造成6点伤害。若格挡至少为20，改为造成10点伤害。";
 }
 
@@ -360,7 +360,7 @@ public sealed class ForgedGalacticDust : CatalogRelic
 {
     internal override string MaterialId => "GALACTIC_DUST";
     internal override RelicModel Original => ModelDb.Relic<GalacticDust>();
-    internal override string ChineseName => "星屑护环";
+    internal override string ChineseName => "星尘瓶";
     internal override string ChineseEffect => "每累计花费10颗星获得10点格挡。每场首次触发时，额外获得1颗星返还。计数只计实际花费，升级时继承原计数。";
 }
 
@@ -368,7 +368,7 @@ public sealed class ForgedMercuryHourglass : CatalogRelic
 {
     internal override string MaterialId => "MERCURY_HOURGLASS";
     internal override RelicModel Original => ModelDb.Relic<MercuryHourglass>();
-    internal override string ChineseName => "潮汐银漏";
+    internal override string ChineseName => "三刻沙漏";
     internal override string ChineseEffect => "自己的回合开始时对所有敌人造成3点伤害。每场战斗第3回合触发时，额外造成3点伤害。";
 }
 
