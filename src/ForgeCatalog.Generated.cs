@@ -384,7 +384,7 @@ public sealed class ForgedEternalFeather : CatalogRelic
 {
     internal override string MaterialId => "ETERNAL_FEATHER";
     internal override RelicModel Original => ModelDb.Relic<EternalFeather>();
-    internal override string ChineseName => "叠绒羽毛";
+    internal override string ChineseName => "回春羽毛";
     internal override string ChineseEffect => "进火堆时，牌组每有5张牌就回复3点生命。若入场时生命不超过一半，再回复3点。";
 }
 
@@ -392,7 +392,7 @@ public sealed class ForgedRippleBasin : CatalogRelic
 {
     internal override string MaterialId => "RIPPLE_BASIN";
     internal override RelicModel Original => ModelDb.Relic<RippleBasin>();
-    internal override string ChineseName => "静水铜盆";
+    internal override string ChineseName => "涟漪铜盆";
     internal override string ChineseEffect => "若本回合没有打出攻击牌，回合结束时获得4点格挡。若至少打出2张技能牌，则获得6点。";
 }
 
