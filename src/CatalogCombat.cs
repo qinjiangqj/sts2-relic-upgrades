@@ -71,12 +71,6 @@ public abstract partial class CatalogRelic
         await Native.BeforeSideTurnStart(choiceContext, side, participants, combatState);
         if (!OurSide(side, participants)) return;
         if (MaterialId == "POWER_CELL" && Turn == 1) MarkHandTail(HandCount - hand);
-
-        if (MaterialId == "TWISTED_FUNNEL" && Turn == 2)
-        {
-            foreach (Creature enemy in Enemies.Where(enemy => enemy.HasPower<PoisonPower>()).ToArray())
-                await Apply<PoisonPower>(enemy, 2, choiceContext);
-        }
     }
 
     public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)

@@ -336,8 +336,10 @@ public sealed class ForgedTwistedFunnel : CatalogRelic
 {
     internal override string MaterialId => "TWISTED_FUNNEL";
     internal override RelicModel Original => ModelDb.Relic<TwistedFunnel>();
-    internal override string ChineseName => "双口漏斗";
-    internal override string ChineseEffect => "战斗开始时向全体敌人施加4层中毒。第2回合开始时，再为仍处于中毒的敌人各补2层。";
+    internal override string ChineseName => "溢流漏斗";
+    internal override string EnglishName => "Overflow Funnel";
+    internal override string ChineseEffect => "战斗开始时，给所有敌人施加4层中毒。每场战斗第一次你使一名敌人的中毒从不足8层叠到至少8层时，给所有敌人各施加2层中毒。";
+    internal override string EnglishEffect => "At the start of combat, apply 4 Poison to all enemies. The first time each combat you raise an enemy's Poison from below 8 to 8 or more, apply 2 Poison to all enemies.";
 }
 
 public sealed class ForgedParryingShield : CatalogRelic

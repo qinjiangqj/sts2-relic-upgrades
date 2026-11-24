@@ -1,9 +1,9 @@
 {
   "id": "RelicForge",
   "name": "遗物升级 / Relic Upgrades",
-  "description": "v0.113.1.4。打怪攒碎片，在火堆或第一、第二幕的先古结算后升级遗物。",
+  "description": "v0.113.1.5。打怪攒碎片，在火堆或第一、第二幕的先古结算后升级遗物。",
   "author": "Relic Upgrades",
-  "version": "0.113.1-4",
+  "version": "0.113.1-5",
   "has_dll": true,
   "has_pck": true,
   "min_game_version": "0.113.1",

@@ -126,6 +126,12 @@ public abstract partial class CatalogRelic
         if (applier != Me || !power.Owner.IsEnemy) return;
         switch (MaterialId)
         {
+            case "TWISTED_FUNNEL" when power is PoisonPower && power.Owner.IsAlive && power.Amount >= 8 &&
+                 power.Amount - amount < 8 && CombatOnce("funnel-overflow"):
+                Flash();
+                foreach (Creature enemy in Enemies.ToArray())
+                    await Apply<PoisonPower>(enemy, 2, context);
+                break;
             case "SNECKO_SKULL" when power is PoisonPower && power.Amount >= 10 && power.Amount - amount < 10 && CombatOnce("venom-ten"):
                 await Apply<WeakPower>(power.Owner, 1, context); break;
             case "PAPER_KRANE" when power is WeakPower && power.Amount - amount > 0 && CombatOnce("double-weak"):

@@ -42,6 +42,10 @@ public abstract class ForgedRelic : CustomRelicModel
     private string? FindArt(string size)
     {
         string path = $"{ArtRoot}/{size}/{PreviewIcon}.res";
+        if (this is CatalogRelic relic && PreviewIcon is
+            "bound_phylactery" or "juzu_bracelet" or "venerable_tea_set" or "blood_vial" or
+            "ornamental_fan" or "paper_phrog" or "pantograph" or "akabeko" or "tingsha")
+            return RelicOverlayArt.Resolve(size, path, relic.Original);
         return ResourceLoader.Exists(path, "Texture2D") ? path : null;
     }
 }
