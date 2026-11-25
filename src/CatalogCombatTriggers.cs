@@ -7,6 +7,7 @@ using MegaCrit.Sts2.Core.Entities.FoolArrows;
 using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Monsters;
 using MegaCrit.Sts2.Core.Models.Orbs;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Rooms;
@@ -20,6 +21,15 @@ public abstract partial class CatalogRelic
     {
         int flash = _nativeFlashes;
         await Native.AfterDamageGiven(context, dealer, result, props, target, card);
+        if (_combat && MaterialId == "BOUND_PHYLACTERY" && target.PetOwner == Owner &&
+            target.Monster is Osty && result.UnblockedDamage > 0 && CombatOnce("osty-hit"))
+        {
+            // A lethal hit is reported before the game finishes removing Osty.
+            if (result.WasTargetKilled && target.IsDead)
+                _combatFlags.Add("osty-lethal-hit");
+            else
+                await OstyCmd.Summon(context, Owner, 2m, this);
+        }
         if (dealer != Me || !target.IsEnemy || card?.Type != CardType.Attack) return;
         if (result.UnblockedDamage > 0) _turnFlags.Add("attack-hit");
         if (MaterialId == "SHURIKEN") _combatFlags.Remove("shuriken-hit");
@@ -44,19 +54,14 @@ public abstract partial class CatalogRelic
             }
             return;
         }
-        if (MaterialId == "SELF_FORMING_CLAY" && hpLost && result.UnblockedDamage >= 6 && TurnOnce("strong-clay"))
-        {
-            await Native.AfterDamageReceived(context, target, result, props, dealer, card);
-            await Apply<SelfFormingClayPower>(Me, 2, context);
-            return;
-        }
         await Native.AfterDamageReceived(context, target, result, props, dealer, card);
         if (MaterialId == "BURNING_BLOOD" && hpLost && card?.Owner == Owner)
             _combatFlags.Add("own-card-loss");
         if (dealer?.IsEnemy != true) return;
         if (MaterialId == "BRONZE_SCALES" && result.WasFullyBlocked && result.BlockedDamage > 0 &&
             !props.HasFlag(ValueProp.Unpowered) && CombatOnce("scales")) await Apply<ThornsPower>(Me, 2, context);
-        if (MaterialId == "PHILOSOPHERS_STONE" && hpLost && !props.HasFlag(ValueProp.Unpowered) && CombatOnce("stone-hit")) await Block(4);
+        if (MaterialId == "PHILOSOPHERS_STONE" && hpLost && props.IsPoweredAttack() && CombatOnce("stone-hit"))
+            await Apply<StrengthPower>(Me, 1, context);
         if (MaterialId == "EMOTION_CHIP" && hpLost) _combatFlags.Add("chip-guard");
     }
 
@@ -64,8 +69,8 @@ public abstract partial class CatalogRelic
     {
         await Native.AfterCurrentHpChanged(creature, delta);
         if (creature.IsDead || !_combat || creature != Me || delta >= 0) return;
-        if (MaterialId == "RED_SKULL" && Low && (Me.CurrentHp - delta) * 2 > Me.MaxHp && CombatOnce("skull-low"))
-            await Block(6);
+        if (MaterialId == "RED_SKULL" && Low && (Me.CurrentHp - delta) * 2 > Me.MaxHp)
+            _combatFlags.Add("skull-low");
     }
 
     public override async Task AfterBlockBroken(PlayerChoiceContext context, Creature target, Creature? breaker)
@@ -77,24 +82,24 @@ public abstract partial class CatalogRelic
             case "VAJRA" when CombatOnce("vajra-break"): await DamageOne(4, target, context); break;
             case "PAPER_PHROG" when target.HasPower<VulnerablePower>() && CombatOnce("phrog-break"):
                 await Apply<VulnerablePower>(target, 1, context); break;
-            case "HAND_DRILL" when TurnOnce("drill-break"): await Block(3); break;
+            case "HAND_DRILL" when TurnOnce("drill-break"): await Apply<WeakPower>(target, 1, context); break;
         }
     }
 
     public override async Task AfterDeath(PlayerChoiceContext context, Creature creature, CardModel? source, bool wasRemovalPrevented, float deathAnimLength)
     {
         await Native.AfterDeath(context, creature, source, wasRemovalPrevented, deathAnimLength);
-        if (!_combat || wasRemovalPrevented || creature.HasPower<MinionPower>()) return;
-
-        if (MaterialId == "BOUND_PHYLACTERY" && Me.Pets.Contains(creature) && CombatOnce("revive-osty"))
+        if (!_combat) return;
+        if (MaterialId == "BOUND_PHYLACTERY" && creature.PetOwner == Owner && creature.Monster is Osty &&
+            _combatFlags.Remove("osty-lethal-hit"))
         {
             await OstyCmd.Summon(context, Owner, 2m, this);
             return;
         }
-        if (!creature.IsEnemy) return;
+        if (wasRemovalPrevented || !creature.IsEnemy || creature.HasPower<MinionPower>()) return;
         switch (MaterialId)
         {
-            case "GREMLIN_HORN" when CombatOnce("horn-guard"): await Block(4); break;
+            case "GREMLIN_HORN": await Block(4); break;
             case "STRIKE_DUMMY" when source?.Owner == Owner && source.Id.Entry.Contains("STRIKE", StringComparison.Ordinal)
                  && CombatOnce("strike-kill"): await Draw(1, context); break;
             case "MINIATURE_CANNON" when source?.Owner == Owner && source.Type == CardType.Attack
@@ -104,7 +109,9 @@ public abstract partial class CatalogRelic
             case "PEN_NIB" when source?.Owner == Owner && _turnFlags.Contains("pen-armed") && CombatOnce("pen-kill"):
                 _turnFlags.Add("pen-reset"); break;
             case "CROSSBOW" when source is not null && _markedCards.Contains(source) && CombatOnce("crossbow-kill"):
-                await Block(4); break;
+                await PlayerCmd.GainEnergy(1, Owner);
+                await Draw(1, context);
+                break;
         }
     }
 

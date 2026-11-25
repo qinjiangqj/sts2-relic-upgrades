@@ -19,15 +19,23 @@ public abstract partial class CatalogRelic
     {
         await Native.AfterModifyingBlockAmount(amount, source, play);
         if (source?.Owner != Owner) return;
-        if (MaterialId is "VAMBRACE" or "PAELS_LEGION")
-            _turnFlags.Add(amount >= (MaterialId == "VAMBRACE" ? 16 : 20) ? "strong-block" : "small-block");
+        if (MaterialId == "VAMBRACE" && amount >= 16)
+            _turnFlags.Add("strong-block");
+    }
+
+    public override decimal ModifyBlockMultiplicative(Creature target, decimal block, ValueProp props, CardModel? cardSource, CardPlay? cardPlay)
+    {
+        decimal multiplier = Native.ModifyBlockMultiplicative(target, block, props, cardSource, cardPlay);
+        if (MaterialId == "PAELS_LEGION" && cardPlay is not null && multiplier == 2 && block is > 0 and < 10)
+            _turnFlags.Add("legion-small-block");
+        return multiplier;
     }
 
     public override async Task AfterModifyingCardPlayCount(CardModel card)
     {
         await Native.AfterModifyingCardPlayCount(card);
         if (MaterialId == "THROWING_AXE" && card.Owner == Owner && card.Type == CardType.Attack && CombatOnce("axe-mark"))
-            _turnFlags.Add("axe-block");
+            _turnFlags.Add("axe-strength");
     }
 
     public override async Task AfterModifyingPowerAmountReceived(PowerModel power)

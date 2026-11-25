@@ -8,6 +8,7 @@ using MegaCrit.Sts2.Core.Entities.Players;
 using MegaCrit.Sts2.Core.Map;
 using MegaCrit.Sts2.Core.Models;
 using MegaCrit.Sts2.Core.Models.Enchantments;
+using MegaCrit.Sts2.Core.Models.Relics;
 using MegaCrit.Sts2.Core.Rewards;
 using MegaCrit.Sts2.Core.Rooms;
 using MegaCrit.Sts2.Core.Runs;
@@ -18,6 +19,9 @@ public abstract partial class CatalogRelic
 {
     private static readonly ConditionalWeakTable<CardReward, HashSet<CatalogRelic>> RewardSources = new();
     private static readonly ConditionalWeakTable<PotionReward, CatalogRelic> PotionChoiceSources = new();
+    private static readonly ConditionalWeakTable<CardModel, CatalogRelic> CandyCards = new();
+    private static readonly AccessTools.FieldRef<LastingCandy, int> CandyCombatCount =
+        AccessTools.FieldRefAccess<LastingCandy, int>("_combatRewardsSeen");
     private int _sacrificed;
 
     public override async Task AfterRoomEntered(AbstractRoom room)
@@ -37,9 +41,13 @@ public abstract partial class CatalogRelic
                 _markedCards.Add(card);
         }
         if (MaterialId == "ETERNAL_FEATHER" && room is RestSiteRoom && enteringLow)
-            await Heal(3);
-        if (MaterialId == "JUZU_BRACELET" && Owner.RunState.CurrentMapPoint?.PointType == MapPointType.Unknown && FirstThisAct())
-            await Heal(3);
+            await Heal(5);
+        if (MaterialId == "JUZU_BRACELET" && Owner.RunState.CurrentMapPoint?.PointType == MapPointType.Unknown &&
+            Progress[5] != Owner.RunState.TotalFloor)
+        {
+            Progress[5] = Owner.RunState.TotalFloor;
+            await Heal(2);
+        }
         if (MaterialId == "PLANISPHERE" && Progress[4] == 1 && room is not EventRoom && FirstThisAct())
         {
             Progress[4] = 0;
@@ -95,6 +103,10 @@ public abstract partial class CatalogRelic
         {
             case "BURNING_BLOOD" when _combatFlags.Contains("own-card-loss"): await Heal(3); break;
             case "BLOOD_VIAL" when Low: await Heal(3); break;
+            case "LASTING_CANDY":
+                CandyCombatCount((LastingCandy)Native)++;
+                InvokeDisplayAmountChanged();
+                break;
             case "LAVA_LAMP" when !((MegaCrit.Sts2.Core.Models.Relics.LavaLamp)Native).TookDamageThisCombat && FirstThisAct():
                 await PlayerCmd.GainGold(10, Owner); break;
             case "WAR_HAMMER" when room.RoomType == RoomType.Elite && upgradable < 4:
@@ -110,9 +122,10 @@ public abstract partial class CatalogRelic
 
         if (MaterialId == "AMETHYST_AUBERGINE" && result && Low)
             rewards.Add(new GoldReward(10, Owner));
-        if (MaterialId == "BOWLER_HAT" && before.OfType<GoldReward>().Sum(reward => reward.Amount) >= 30 && FirstThisAct())
+        if (MaterialId == "BOWLER_HAT" && !before.OfType<BowlerBonusReward>().Any() &&
+            before.OfType<GoldReward>().Sum(reward => (int)Native.ModifyGoldGained(player, reward.Amount)) >= 30)
         {
-            rewards.Add(new GoldReward(10, Owner));
+            rewards.Add(new BowlerBonusReward(Owner));
             result = true;
         }
         if (MaterialId == "WHITE_STAR" && result)
@@ -130,6 +143,16 @@ public abstract partial class CatalogRelic
         return result;
     }
 
+    private sealed class BowlerBonusReward(Player owner) : GoldReward(10, owner)
+    {
+        // Eight base gold becomes the ten shown on the reward through Bowler Hat's 25% bonus.
+        protected override async Task<bool> OnSelect()
+        {
+            await PlayerCmd.GainGold(8, Player);
+            return true;
+        }
+    }
+
     public override bool TryModifyRestSiteHealRewards(Player player, List<Reward> rewards, bool isMimicked)
     {
         Reward[] before = rewards.ToArray();
@@ -142,45 +165,51 @@ public abstract partial class CatalogRelic
 
     public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> cardRewards, CardCreationOptions creationOptions)
     {
+        if (MaterialId != "LASTING_CANDY")
+            return Native.TryModifyCardRewardOptions(player, cardRewards, creationOptions);
+
+        var candy = (LastingCandy)Native;
+        int count = CandyCombatCount(candy);
+        if (!IsMe(player) || count <= 0 || count % 2 != 0 ||
+            Owner.RunState.CurrentRoom is not CombatRoom { IsPreFinished: true })
+            return false;
+
         int oldCount = cardRewards.Count;
-        bool changed = Native.TryModifyCardRewardOptions(player, cardRewards, creationOptions);
-        if (MaterialId == "LASTING_CANDY" && IsMe(player) && cardRewards.Count > oldCount)
-            _markedCards.Add(cardRewards[^1].Card);
-        return changed;
+        // Native reward generation checks the count before the current combat was recorded.
+        CandyCombatCount(candy) = count - 1;
+        try
+        {
+            bool changed = candy.TryModifyCardRewardOptions(player, cardRewards, creationOptions);
+            if (cardRewards.Count > oldCount)
+                CandyCards.AddOrUpdate(cardRewards[^1].Card, this);
+            return changed;
+        }
+        finally
+        {
+            CandyCombatCount(candy) = count;
+        }
     }
 
-    public override bool TryModifyCardRewardOptionsLate(Player player, List<CardCreationResult> cardRewards, CardCreationOptions options)
+    public override Task BeforeCombatRewardOffered(RewardsSet rewards, CombatRoom room)
     {
-        var eligible = FresnelCandidates(player, cardRewards);
-        bool changed = Native.TryModifyCardRewardOptionsLate(player, cardRewards, options);
-        StrengthenFirstNimble(eligible?.Select(result => result.Card).FirstOrDefault(card => card.Enchantment is Nimble));
-        return changed;
+        if (MaterialId != "LASTING_CANDY")
+            return Native.BeforeCombatRewardOffered(rewards, room);
+        if (IsMe(rewards.Player) && rewards.Rewards.OfType<CardReward>().Any(reward => reward.Cards.Any(IsCandyCard)))
+            Flash();
+        return Task.CompletedTask;
     }
 
-    public override void ModifyMerchantCardCreationResults(Player player, List<CardCreationResult> cards)
-    {
-        var eligible = FresnelCandidates(player, cards);
+    public override bool TryModifyCardRewardOptionsLate(Player player, List<CardCreationResult> cardRewards, CardCreationOptions options) =>
+        Native.TryModifyCardRewardOptionsLate(player, cardRewards, options);
+
+    public override void ModifyMerchantCardCreationResults(Player player, List<CardCreationResult> cards) =>
         Native.ModifyMerchantCardCreationResults(player, cards);
-        StrengthenFirstNimble(eligible?.Select(result => result.Card).FirstOrDefault(card => card.Enchantment is Nimble));
-    }
 
-    public override bool TryModifyCardBeingAddedToDeck(CardModel card, out CardModel? newCard)
-    {
-        bool changed = Native.TryModifyCardBeingAddedToDeck(card, out newCard);
-        if (MaterialId == "FRESNEL_LENS" && changed)
-            StrengthenFirstNimble(newCard);
-        return changed;
-    }
+    public override bool TryModifyCardBeingAddedToDeck(CardModel card, out CardModel? newCard) =>
+        Native.TryModifyCardBeingAddedToDeck(card, out newCard);
 
-    private CardCreationResult[]? FresnelCandidates(Player player, List<CardCreationResult> cards) =>
-        MaterialId == "FRESNEL_LENS" && IsMe(player) && Progress[0] != Owner.RunState.CurrentActIndex + 1
-            ? cards.Where(result => result.Card.Enchantment == null).ToArray() : null;
-
-    private void StrengthenFirstNimble(CardModel? card)
-    {
-        if (card?.Enchantment is Nimble nimble && FirstThisAct())
-            nimble.Amount += 1;
-    }
+    private bool IsCandyCard(CardModel card) =>
+        CandyCards.TryGetValue(card, out var relic) && relic == this;
 
     public override bool TryModifyCardRewardAlternatives(Player player, CardReward reward, List<CardRewardAlternative> alternatives)
     {
@@ -192,7 +221,7 @@ public abstract partial class CatalogRelic
     internal async Task RecordSelectedCard(CardReward reward, CardModel? picked, bool rerolled)
     {
         if (MaterialId == "PAELS_WING" && picked == null && ((MegaCrit.Sts2.Core.Models.Relics.PaelsWing)Native).RewardsSacrificed > _sacrificed &&
-            ((MegaCrit.Sts2.Core.Models.Relics.PaelsWing)Native).RewardsSacrificed % 2 == 0 && FirstThisAct())
+            ((MegaCrit.Sts2.Core.Models.Relics.PaelsWing)Native).RewardsSacrificed % 2 == 0)
             await PlayerCmd.GainGold(10, Owner);
         if (picked == null) return;
         switch (MaterialId)
@@ -201,7 +230,7 @@ public abstract partial class CatalogRelic
                  sources.Contains(this) && FirstThisAct():
                 if (picked.IsUpgradable) CardCmd.Upgrade(picked);
                 break;
-            case "LASTING_CANDY" when _markedCards.Any(card => card.Id == picked.Id):
+            case "LASTING_CANDY" when reward.Cards.Any(card => card.Id == picked.Id && IsCandyCard(card)):
                 await Heal(3); break;
             case "LUCKY_FYSH" when picked.IsUpgraded && FirstThisAct(): await PlayerCmd.GainGold(15, Owner); break;
             case "DRIFTWOOD" when rerolled && FirstThisAct(): await Heal(3); break;

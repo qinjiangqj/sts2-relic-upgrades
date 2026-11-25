@@ -33,7 +33,7 @@ public sealed class ForgedBoundPhylactery : CatalogRelic
     internal override string MaterialId => "BOUND_PHYLACTERY";
     internal override RelicModel Original => ModelDb.Relic<BoundPhylactery>();
     internal override string ChineseName => "护魂命匣";
-    internal override string ChineseEffect => "每回合开始时召唤1。每场战斗第一次奥斯提因受到伤害而死亡时，立即召唤2。";
+    internal override string ChineseEffect => "每回合开始时召唤1。每场战斗第一次奥斯提因伤害失去生命时，立即召唤2。";
 }
 
 public sealed class ForgedCrackedCore : CatalogRelic
@@ -57,7 +57,7 @@ public sealed class ForgedBookOfFiveRings : CatalogRelic
     internal override string MaterialId => "BOOK_OF_FIVE_RINGS";
     internal override RelicModel Original => ModelDb.Relic<BookOfFiveRings>();
     internal override string ChineseName => "五式医典";
-    internal override string ChineseEffect => "获得第5张新牌时回复20点生命并清零计数。若这5张里至少有一张攻击、一张技能和一张能力，则另外获得25金币。升级时继承原计数，旧记录只计数量。";
+    internal override string ChineseEffect => "获得第5张新牌时回复20点生命并清零计数。若这5张里至少有一张攻击、一张技能和一张能力，则再回复5点生命。升级时继承原计数，旧记录只计数量。";
 }
 
 public sealed class ForgedJuzuBracelet : CatalogRelic
@@ -65,7 +65,7 @@ public sealed class ForgedJuzuBracelet : CatalogRelic
     internal override string MaterialId => "JUZU_BRACELET";
     internal override RelicModel Original => ModelDb.Relic<JuzuBracelet>();
     internal override string ChineseName => "寻幽佛珠";
-    internal override string ChineseEffect => "问号房间避开普通战斗。每幕首次进入问号房间时回复3点生命。";
+    internal override string ChineseEffect => "问号房间避开普通战斗。每次进入问号房间时回复2点生命。";
 }
 
 public sealed class ForgedBagOfPreparation : CatalogRelic
@@ -73,7 +73,7 @@ public sealed class ForgedBagOfPreparation : CatalogRelic
     internal override string MaterialId => "BAG_OF_PREPARATION";
     internal override RelicModel Original => ModelDb.Relic<BagOfPreparation>();
     internal override string ChineseName => "分层行囊";
-    internal override string ChineseEffect => "首回合额外抽2张牌。若首回合结束时没有手牌，第2回合额外抽1张。";
+    internal override string ChineseEffect => "首回合额外抽2张牌。第2回合额外抽1张牌。";
 }
 
 public sealed class ForgedFencingManual : CatalogRelic
@@ -105,7 +105,7 @@ public sealed class ForgedHappyFlower : CatalogRelic
     internal override string MaterialId => "HAPPY_FLOWER";
     internal override RelicModel Original => ModelDb.Relic<HappyFlower>();
     internal override string ChineseName => "向日双芽";
-    internal override string ChineseEffect => "每累计过3个自己的回合，获得1点能量。每场战斗第一次触发时，还获得3点格挡。升级时继承原计数。";
+    internal override string ChineseEffect => "每累计过3个自己的回合，获得1点能量。每场战斗第一次触发时，再获得1点能量。升级时继承原计数。";
 }
 
 public sealed class ForgedSneckoSkull : CatalogRelic
@@ -137,7 +137,7 @@ public sealed class ForgedStrikeDummy : CatalogRelic
     internal override string MaterialId => "STRIKE_DUMMY";
     internal override RelicModel Original => ModelDb.Relic<StrikeDummy>();
     internal override string ChineseName => "回弹木偶";
-    internal override string ChineseEffect => "名字含“打击”的牌额外造成3点伤害。每场战斗第一次用这类牌击杀非爪牙敌人时，抽1张牌。";
+    internal override string ChineseEffect => "名字含“打击”的牌额外造成4点伤害。每场战斗第一次用这类牌击杀非爪牙敌人时，抽1张牌。";
 }
 
 public sealed class ForgedGorget : CatalogRelic
@@ -153,7 +153,7 @@ public sealed class ForgedPendulum : CatalogRelic
     internal override string MaterialId => "PENDULUM";
     internal override RelicModel Original => ModelDb.Relic<Pendulum>();
     internal override string ChineseName => "双轴摆球";
-    internal override string ChineseEffect => "每累计过3个自己的回合抽1张牌。触发时若手牌至多2张，改抽2张。升级时继承原计数。";
+    internal override string ChineseEffect => "每累计过3个自己的回合抽1张牌。若在奇数回合触发，改为抽2张。升级时继承原计数。";
 }
 
 public sealed class ForgedDataDisk : CatalogRelic
@@ -184,7 +184,7 @@ public sealed class ForgedAmethystAubergine : CatalogRelic
 {
     internal override string MaterialId => "AMETHYST_AUBERGINE";
     internal override RelicModel Original => ModelDb.Relic<AmethystAubergine>();
-    internal override string ChineseName => "紫晶钱囊";
+    internal override string ChineseName => "聚财茄子";
     internal override string ChineseEffect => "战斗金币奖励额外增加15。若战斗结束时生命不超过一半，再增加10金币。";
 }
 
@@ -193,7 +193,7 @@ public sealed class ForgedRedSkull : CatalogRelic
     internal override string MaterialId => "RED_SKULL";
     internal override RelicModel Original => ModelDb.Relic<RedSkull>();
     internal override string ChineseName => "赤髓头骨";
-    internal override string ChineseEffect => "生命不超过一半时增加3点力量。每场战斗首次从高于一半降到一半或以下时，额外获得6点格挡。";
+    internal override string ChineseEffect => "生命不超过一半时增加3点力量。每场战斗首次从高于一半降到一半或以下后，本场接下来的每个回合开始时获得3点格挡。";
 }
 
 public sealed class ForgedRedMask : CatalogRelic
@@ -265,7 +265,7 @@ public sealed class ForgedNunchaku : CatalogRelic
     internal override string MaterialId => "NUNCHAKU";
     internal override RelicModel Original => ModelDb.Relic<Nunchaku>();
     internal override string ChineseName => "铜节双截棍";
-    internal override string ChineseEffect => "每累计打出10张攻击牌获得1点能量。触发的攻击若使敌人失去生命，再抽1张牌。升级时继承原计数。";
+    internal override string ChineseEffect => "每累计打出10张攻击牌获得1点能量。触发的攻击若使敌人失去生命，再获得1点能量。升级时继承原计数。";
 }
 
 public sealed class ForgedLastingCandy : CatalogRelic
@@ -273,7 +273,7 @@ public sealed class ForgedLastingCandy : CatalogRelic
     internal override string MaterialId => "LASTING_CANDY";
     internal override RelicModel Original => ModelDb.Relic<LastingCandy>();
     internal override string ChineseName => "夹心糖袋";
-    internal override string ChineseEffect => "每累计完成2场战斗，为第2场战斗的卡牌奖励额外加入1张能力牌。若该场没有卡牌奖励，则加到下一份战斗卡牌奖励。选中这张牌时回复3点生命。升级时继承原计数。";
+    internal override string ChineseEffect => "每累计完成2场战斗，在第2场战斗的卡牌奖励中额外加入1张能力牌。选中这张牌时回复3点生命。升级时继承原计数。";
 }
 
 public sealed class ForgedRegalite : CatalogRelic
@@ -281,7 +281,7 @@ public sealed class ForgedRegalite : CatalogRelic
     internal override string MaterialId => "REGALITE";
     internal override RelicModel Original => ModelDb.Relic<Regalite>();
     internal override string ChineseName => "王庭合金";
-    internal override string ChineseEffect => "每回合首次生成卡牌时获得4点格挡。如果生成的是无色牌，再获得2点格挡。";
+    internal override string ChineseEffect => "每回合首次生成卡牌时获得4点格挡。如果生成的是无色牌，再获得4点格挡。";
 }
 
 public sealed class ForgedBowlerHat : CatalogRelic
@@ -289,7 +289,7 @@ public sealed class ForgedBowlerHat : CatalogRelic
     internal override string MaterialId => "BOWLER_HAT";
     internal override RelicModel Original => ModelDb.Relic<BowlerHat>();
     internal override string ChineseName => "硬币礼帽";
-    internal override string ChineseEffect => "金币收入增加25%。每幕首次在战斗结算中得到的金币原额达到30时，再获得10金币。";
+    internal override string ChineseEffect => "金币收入增加25%。战斗结算时，若加成后的金币达到30，再奖励10金币。";
 }
 
 public sealed class ForgedGremlinHorn : CatalogRelic
@@ -297,7 +297,7 @@ public sealed class ForgedGremlinHorn : CatalogRelic
     internal override string MaterialId => "GREMLIN_HORN";
     internal override RelicModel Original => ModelDb.Relic<GremlinHorn>();
     internal override string ChineseName => "领队号角";
-    internal override string ChineseEffect => "敌人死亡时获得1点能量并抽1张牌。每场首次由非爪牙触发时，再获得4点格挡。";
+    internal override string ChineseEffect => "敌人死亡时获得1点能量并抽1张牌。非爪牙敌人死亡时，再获得4点格挡。";
 }
 
 public sealed class ForgedOrichalcum : CatalogRelic
@@ -387,7 +387,7 @@ public sealed class ForgedEternalFeather : CatalogRelic
     internal override string MaterialId => "ETERNAL_FEATHER";
     internal override RelicModel Original => ModelDb.Relic<EternalFeather>();
     internal override string ChineseName => "回春羽毛";
-    internal override string ChineseEffect => "进火堆时，牌组每有5张牌就回复3点生命。若入场时生命不超过一半，再回复3点。";
+    internal override string ChineseEffect => "进火堆时，牌组每有5张牌就回复3点生命。若入场时生命不超过一半，再回复5点生命。";
 }
 
 public sealed class ForgedRippleBasin : CatalogRelic
@@ -411,7 +411,7 @@ public sealed class ForgedCandelabra : CatalogRelic
     internal override string MaterialId => "CANDELABRA";
     internal override RelicModel Original => ModelDb.Relic<Candelabra>();
     internal override string ChineseName => "双焰烛台";
-    internal override string ChineseEffect => "第2回合获得1点能量。若首回合结束时没有剩余能量，第2回合还抽1张牌。";
+    internal override string ChineseEffect => "第2回合获得2点能量。若首回合结束时没有剩余能量，第2回合额外抽1张牌。";
 }
 
 public sealed class ForgedReptileTrinket : CatalogRelic
@@ -475,7 +475,7 @@ public sealed class ForgedSelfFormingClay : CatalogRelic
     internal override string MaterialId => "SELF_FORMING_CLAY";
     internal override RelicModel Original => ModelDb.Relic<SelfFormingClay>();
     internal override string ChineseName => "回流黏土";
-    internal override string ChineseEffect => "每次在战斗中失去生命，下回合获得3点格挡。每个回合首次单次失去至少6点生命时，该次改为5点。";
+    internal override string ChineseEffect => "每次在战斗中失去生命，下回合获得4点格挡。";
 }
 
 public sealed class ForgedHornCleat : CatalogRelic
@@ -499,7 +499,7 @@ public sealed class ForgedAkabeko : CatalogRelic
     internal override string MaterialId => "AKABEKO";
     internal override RelicModel Original => ModelDb.Relic<Akabeko>();
     internal override string ChineseName => "赤角斗牛";
-    internal override string ChineseEffect => "战斗开始时获得8点活力。若第1回合未打出攻击牌，第2回合再获得3点活力。";
+    internal override string ChineseEffect => "战斗开始时获得8点活力。若第1回合未打出攻击牌，第2回合获得8点格挡。";
 }
 
 public sealed class ForgedJossPaper : CatalogRelic
@@ -1083,7 +1083,7 @@ public sealed class ForgedToastyMittens : CatalogRelic
     internal override string MaterialId => "TOASTY_MITTENS";
     internal override RelicModel Original => ModelDb.Relic<ToastyMittens>();
     internal override string ChineseName => "隔热烘焙手套";
-    internal override string ChineseEffect => "每回合开始时，若手中有牌，选1张消耗并获得1点力量。每场第一次烧掉非生成牌时，再获得4点格挡。";
+    internal override string ChineseEffect => "每回合开始时，若手中有牌，选1张消耗，获得1点力量和4点格挡。";
 }
 
 public sealed class ForgedSealOfGold : CatalogRelic
@@ -1115,7 +1115,7 @@ public sealed class ForgedPumpkinCandle : CatalogRelic
     internal override string MaterialId => "PUMPKIN_CANDLE";
     internal override RelicModel Original => ModelDb.Relic<PumpkinCandle>();
     internal override string ChineseName => "挡风南瓜灯";
-    internal override string ChineseEffect => "点亮时每回合获得1点能量，仍按每5场战斗熄灭并可在火堆添火。每次点燃后的首战开局获得5点格挡。继承原剩余场次与熄灭状态。";
+    internal override string ChineseEffect => "点亮时每回合获得1点能量，每5场战斗熄灭并可在火堆添火。每次点燃后的首场战斗，第1回合额外获得1点能量。升级时继承剩余场次与熄灭状态。";
 }
 
 public sealed class ForgedPaelsLegion : CatalogRelic
@@ -1123,7 +1123,7 @@ public sealed class ForgedPaelsLegion : CatalogRelic
     internal override string MaterialId => "PAELS_LEGION";
     internal override RelicModel Original => ModelDb.Relic<PaelsLegion>();
     internal override string ChineseName => "佩尔护卫";
-    internal override string ChineseEffect => "仍在可用时翻倍一张牌提供的格挡，随后休眠2回合。若翻倍前格挡至少为10，翻倍后再获得3点格挡。";
+    internal override string ChineseEffect => "仍在可用时翻倍一张牌提供的格挡，随后休眠2回合。若翻倍前格挡少于10，翻倍后再获得6点格挡。";
 }
 
 public sealed class ForgedPaelsTears : CatalogRelic
@@ -1131,7 +1131,7 @@ public sealed class ForgedPaelsTears : CatalogRelic
     internal override string MaterialId => "PAELS_TEARS";
     internal override RelicModel Original => ModelDb.Relic<PaelsTears>();
     internal override string ChineseName => "凝晶之泪";
-    internal override string ChineseEffect => "回合结束时若恰好剩1点能量，下回合额外获得2点能量。每场首次达成时，下回合再获得4点格挡。";
+    internal override string ChineseEffect => "回合结束时若恰好剩1点能量，下回合额外获得2点能量。每场首次达成时，下回合再获得1点能量并多抽1张牌。";
 }
 
 public sealed class ForgedPaelsFlesh : CatalogRelic
@@ -1147,7 +1147,7 @@ public sealed class ForgedPaelsBlood : CatalogRelic
     internal override string MaterialId => "PAELS_BLOOD";
     internal override RelicModel Original => ModelDb.Relic<PaelsBlood>();
     internal override string ChineseName => "佩尔心血";
-    internal override string ChineseEffect => "每回合额外抽1张牌。从第3回合起，每场首次在回合结束时手牌为空，下一回合再多抽1张。";
+    internal override string ChineseEffect => "每回合额外抽1张牌。从第3回合起，每场首次在回合结束时手牌数不超过当前回合数，下一回合再多抽1张。";
 }
 
 public sealed class ForgedPaelsWing : CatalogRelic
@@ -1155,7 +1155,7 @@ public sealed class ForgedPaelsWing : CatalogRelic
     internal override string MaterialId => "PAELS_WING";
     internal override RelicModel Original => ModelDb.Relic<PaelsWing>();
     internal override string ChineseName => "佩尔主翼";
-    internal override string ChineseEffect => "仍可每献祭2份卡牌奖励换1件遗物。每幕首件用这种方式获得的遗物还附带10金币。继承献祭进度。";
+    internal override string ChineseEffect => "每献祭2份卡牌奖励换1件遗物。每次以这种方式获得遗物时，再获得10金币。升级时继承献祭进度。";
 }
 
 public sealed class ForgedCrossbow : CatalogRelic
@@ -1163,7 +1163,7 @@ public sealed class ForgedCrossbow : CatalogRelic
     internal override string MaterialId => "CROSSBOW";
     internal override RelicModel Original => ModelDb.Relic<Crossbow>();
     internal override string ChineseName => "回弦弩";
-    internal override string ChineseEffect => "每回合生成一张本回合可免费打出的随机攻击牌。每场首次将这类牌用于击杀非爪牙敌人时，获得4点格挡。";
+    internal override string ChineseEffect => "每回合生成一张本回合可免费打出的随机攻击牌。每场首次用这类牌击杀非爪牙敌人时，获得1点能量并抽1张牌。";
 }
 
 public sealed class ForgedStoneHumidifier : CatalogRelic
@@ -1179,7 +1179,7 @@ public sealed class ForgedVeryHotCocoa : CatalogRelic
     internal override string MaterialId => "VERY_HOT_COCOA";
     internal override RelicModel Original => ModelDb.Relic<VeryHotCocoa>();
     internal override string ChineseName => "隔热可可杯";
-    internal override string ChineseEffect => "首回合额外获得4点能量。若该回合用完能量，第2回合额外抽1张牌。";
+    internal override string ChineseEffect => "首回合额外获得4点能量。若该回合用完能量，第2回合额外抽1张牌并获得1点能量。";
 }
 
 public sealed class ForgedIronClub : CatalogRelic
@@ -1187,7 +1187,7 @@ public sealed class ForgedIronClub : CatalogRelic
     internal override string MaterialId => "IRON_CLUB";
     internal override RelicModel Original => ModelDb.Relic<IronClub>();
     internal override string ChineseName => "刻度铁棒";
-    internal override string ChineseEffect => "每累计打出4张牌，抽1张。在同回合首次触发且手牌为空时，还获得3点格挡。继承原计数。";
+    internal override string ChineseEffect => "每累计打出4张牌，抽1张。每回合首次触发时，还获得4点格挡。升级时继承原计数。";
 }
 
 public sealed class ForgedThrowingAxe : CatalogRelic
@@ -1195,7 +1195,7 @@ public sealed class ForgedThrowingAxe : CatalogRelic
     internal override string MaterialId => "THROWING_AXE";
     internal override RelicModel Original => ModelDb.Relic<ThrowingAxe>();
     internal override string ChineseName => "回柄投斧";
-    internal override string ChineseEffect => "每场第一张打出的牌额外打出一次。若这张原牌为攻击牌，重复结算后获得4点格挡。";
+    internal override string ChineseEffect => "每场第一张打出的牌额外打出一次。若这张原牌为攻击牌，重复结算后获得2点力量。";
 }
 
 public sealed class ForgedPhilosophersStone : CatalogRelic
@@ -1203,7 +1203,7 @@ public sealed class ForgedPhilosophersStone : CatalogRelic
     internal override string MaterialId => "PHILOSOPHERS_STONE";
     internal override RelicModel Original => ModelDb.Relic<PhilosophersStone>();
     internal override string ChineseName => "分棱贤者石";
-    internal override string ChineseEffect => "每回合额外获得1点能量，全部敌人开局仍获得1点力量。每场第一次实际受到敌方攻击伤害后，获得4点格挡。";
+    internal override string ChineseEffect => "每回合额外获得1点能量，全部敌人开局获得1点力量。每场第一次实际受到敌方攻击伤害后，获得1点力量。";
 }
 
 public sealed class ForgedChoicesParadox : CatalogRelic
@@ -1211,7 +1211,7 @@ public sealed class ForgedChoicesParadox : CatalogRelic
     internal override string MaterialId => "CHOICES_PARADOX";
     internal override RelicModel Original => ModelDb.Relic<ChoicesParadox>();
     internal override string ChineseName => "续章悖论";
-    internal override string ChineseEffect => "开局从5张随机牌中选择1张加入手牌并赋予保留。若它被留到第2回合，首次打出时获得4点格挡。";
+    internal override string ChineseEffect => "开局从5张随机牌中选择1张加入手牌并赋予保留。若它被留到第2回合，首次打出时获得6点格挡。";
 }
 
 public sealed class ForgedBrilliantScarf : CatalogRelic
@@ -1227,7 +1227,7 @@ public sealed class ForgedMusicBox : CatalogRelic
     internal override string MaterialId => "MUSIC_BOX";
     internal override RelicModel Original => ModelDb.Relic<MusicBox>();
     internal override string ChineseName => "双簧音乐盒";
-    internal override string ChineseEffect => "每回合首次打出的攻击牌生成一张虚无复制品。每场首次打出由此生成的复制品后，获得4点格挡。";
+    internal override string ChineseEffect => "每回合首次打出的攻击牌生成一张虚无复制品。每次打出由此生成的复制品后，获得4点格挡。";
 }
 
 public sealed class ForgedWarHammer : CatalogRelic
@@ -1243,7 +1243,7 @@ public sealed class ForgedDiamondDiadem : CatalogRelic
     internal override string MaterialId => "DIAMOND_DIADEM";
     internal override RelicModel Original => ModelDb.Relic<DiamondDiadem>();
     internal override string ChineseName => "双面钻冠";
-    internal override string ChineseEffect => "开局获得18点格挡，并保留到第2回合。第2回合开始时，若这时格挡为0，获得5点格挡。";
+    internal override string ChineseEffect => "开局获得18点格挡，并保留到第2回合。第2回合开始时，获得5点格挡。";
 }
 
 public sealed class ForgedMrStruggles : CatalogRelic
@@ -1275,7 +1275,7 @@ public sealed class ForgedFresnelLens : CatalogRelic
     internal override string MaterialId => "FRESNEL_LENS";
     internal override RelicModel Original => ModelDb.Relic<FresnelLens>();
     internal override string ChineseName => "叠片菲涅耳镜";
-    internal override string ChineseEffect => "新加入牌组的格挡牌获得灵巧2。每幕第一张由它赋予灵巧的牌改为灵巧3。";
+    internal override string ChineseEffect => "新加入牌组的格挡牌获得灵巧3。";
 }
 
 public sealed class ForgedDaughterOfTheWind : CatalogRelic
@@ -1331,7 +1331,7 @@ public sealed class ForgedHandDrill : CatalogRelic
     internal override string MaterialId => "HAND_DRILL";
     internal override RelicModel Original => ModelDb.Relic<HandDrill>();
     internal override string ChineseName => "贯甲手钻";
-    internal override string ChineseEffect => "打破敌人格挡时对该目标施加2层易伤。每回合首次触发时，再获得3点格挡。";
+    internal override string ChineseEffect => "打破敌人格挡时对该目标施加2层易伤。每回合首次触发时，再对该目标施加1层虚弱。";
 }
 
 public sealed class ForgedForgottenSoul : CatalogRelic
@@ -1339,7 +1339,7 @@ public sealed class ForgedForgottenSoul : CatalogRelic
     internal override string MaterialId => "FORGOTTEN_SOUL";
     internal override RelicModel Original => ModelDb.Relic<ForgottenSoul>();
     internal override string ChineseName => "回忆之魂";
-    internal override string ChineseEffect => "每次消耗卡牌随机对一名敌人造成1点伤害。每回合首次消耗第3张牌时，该次改为对全体造成2点伤害。";
+    internal override string ChineseEffect => "每次消耗卡牌随机对一名敌人造成1点伤害。每回合消耗第3、6、9……张牌时，该次改为对全体敌人造成2点伤害。";
 }
 
 public sealed class ForgedBathTowel : CatalogRelic
@@ -1347,7 +1347,7 @@ public sealed class ForgedBathTowel : CatalogRelic
     internal override string MaterialId => "BATH_TOWEL";
     internal override RelicModel Original => ModelDb.Relic<BathTowel>();
     internal override string ChineseName => "暖绒浴巾";
-    internal override string ChineseEffect => "战斗开始时回复8点生命。若开场前生命不超过四分之一，另得4点格挡。";
+    internal override string ChineseEffect => "战斗开始时回复8点生命。若开场前生命不超过四分之一，再回复8点生命。";
 }
 
 internal static class ForgeCatalog

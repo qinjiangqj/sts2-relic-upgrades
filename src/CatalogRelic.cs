@@ -80,6 +80,12 @@ public abstract partial class CatalogRelic : ForgedRelic
             }
 
             _native ??= Original.ToMutable();
+            switch (MaterialId)
+            {
+                case "STRIKE_DUMMY": _native.DynamicVars["ExtraDamage"].BaseValue = 4; break;
+                case "SELF_FORMING_CLAY": _native.DynamicVars["BlockNextTurn"].BaseValue = 4; break;
+                case "FRESNEL_LENS": _native.DynamicVars["NimbleAmount"].BaseValue = 3; break;
+            }
             _native.Owner = Owner;
             ActiveShadows.Add(_native, this);
             _native.DisplayAmountChanged += InvokeDisplayAmountChanged;

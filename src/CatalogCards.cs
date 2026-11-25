@@ -24,6 +24,8 @@ public abstract partial class CatalogRelic
         if (cardPlay.Player == Owner && MaterialId == "PEN_NIB" && cardPlay.Card.Type == CardType.Attack &&
             ((PenNib)Native).AttacksPlayed % 10 == 9)
             _turnFlags.Add("pen-armed");
+        if (cardPlay.Player == Owner && MaterialId == "NUNCHAKU" && cardPlay.Card.Type == CardType.Attack)
+            _turnFlags.Remove("attack-hit");
         if (cardPlay.Player == Owner && MaterialId == "RAZOR_TOOTH" && cardPlay.Card.IsUpgradable)
             _markedCards.Add(cardPlay.Card);
         if (cardPlay.Player == Owner && MaterialId == "INTIMIDATING_HELMET" &&
@@ -86,8 +88,8 @@ public abstract partial class CatalogRelic
                     AccessTools.PropertySetter(typeof(PenNib), nameof(PenNib.AttacksPlayed))!.Invoke(nib, [nib.AttacksPlayed + 2]);
                 }
                 break;
-            case "VAMBRACE" or "PAELS_LEGION" when _turnFlags.Remove("strong-block"):
-                await Block(MaterialId == "VAMBRACE" ? 4 : 3); break;
+            case "VAMBRACE" when _turnFlags.Remove("strong-block"): await Block(4); break;
+            case "PAELS_LEGION" when nativeTriggered && _turnFlags.Remove("legion-small-block"): await Block(6); break;
             case "SPIKED_GAUNTLETS" when power && CombatOnce("gauntlet-power"): await Block(5); break;
             case "TORMENTOUS_COLLAR" when attack && Owner.RunState.CurrentRoom?.RoomType == MegaCrit.Sts2.Core.Rooms.RoomType.Elite &&
                  play.Target is { IsAlive: true } terror && terror.HasPower<WeakPower>() && CombatOnce("collar"):
@@ -95,8 +97,10 @@ public abstract partial class CatalogRelic
             case "BRILLIANT_SCARF" when _turnFlags.Remove("scarf-block"): await Block(3); break;
             case "UNSETTLING_LAMP" when nativeTriggered && CountTurn("lamp-debuffs") >= 2 && CombatOnce("lamp-splash"):
                 await Block(4); break;
-            case "THROWING_AXE" when _turnFlags.Contains("axe-block") && IncTurn("axe-plays") == 2:
-                _turnFlags.Remove("axe-block"); await Block(4); break;
+            case "THROWING_AXE" when _turnFlags.Contains("axe-strength") && IncTurn("axe-plays") == 2:
+                _turnFlags.Remove("axe-strength");
+                await Apply<StrengthPower>(Me, 2, choiceContext);
+                break;
             case "FENCING_MANUAL" when card.Id.Entry == "SOVEREIGN_BLADE" && CombatOnce("first-sword"):
                 await Block(5); break;
             case "BAG_OF_MARBLES" when Turn == 1 && attack && play.Target is { IsAlive: true } vulnerable &&
@@ -126,7 +130,7 @@ public abstract partial class CatalogRelic
                 else if (_combatFlags.Contains("rouge-first")) _combatFlags.Add("rouge-second");
                 break;
             case "NUNCHAKU" when attack && nativeTriggered && _turnFlags.Remove("attack-hit"):
-                await Draw(1, choiceContext); break;
+                await PlayerCmd.GainEnergy(1, Owner); break;
             case "TUNING_FORK" when skill && nativeTriggered && HandCount <= 2:
                 await Draw(1, choiceContext); break;
             case "FUNERARY_MASK" when card.Id.Entry == "SOUL" && CombatOnce("first-soul"):
@@ -142,10 +146,11 @@ public abstract partial class CatalogRelic
                 await Draw(1, choiceContext); break;
             case "VEXING_PUZZLEBOX" when isMarked && Turn == 1 && card.EnergyCost.GetWithModifiers(CostModifiers.None) >= 2 && CombatOnce("box"):
                 await Block(5); break;
-            case "BURNING_STICKS" or "MUSIC_BOX" when isMarked && CombatOnce("first-copy"): await Block(4); break;
+            case "BURNING_STICKS" when isMarked && CombatOnce("first-copy"): await Block(4); break;
+            case "MUSIC_BOX" when isMarked: await Block(4); break;
             case "MUSIC_BOX" when attack && nativeTriggered: MarkHandTail(Math.Max(0, HandCount - oldHand)); break;
             case "CROSSBOW" when isMarked: _combatFlags.Add("fired-crossbow"); break;
-            case "CHOICES_PARADOX" when isMarked && Turn >= 2 && CombatOnce("paradox"): await Block(4); break;
+            case "CHOICES_PARADOX" when isMarked && Turn >= 2 && CombatOnce("paradox"): await Block(6); break;
             case "RINGING_TRIANGLE" when Turn == 2 && isMarked && CombatOnce("retained"): await Block(4); break;
             case "STONE_CRACKER" when isMarked && CombatOnce("drilled"): await Block(4); break;
             case "BELLOWS" when isMarked && (attack || skill):
@@ -164,7 +169,7 @@ public abstract partial class CatalogRelic
             case "RAZOR_TOOTH" when isMarked && wasPlayed && CombatOnce("razor-replay"): await Draw(1, choiceContext); break;
             case "IVORY_TILE" when play.Resources.EnergySpent >= 3 && CombatOnce("first-heavy"): await Block(5); break;
             case "CONDUCTORS_BATON" when nativeTriggered && CombatOnce("conducted"): _combatFlags.Add("conducted-draw"); break;
-            case "IRON_CLUB" when nativeTriggered && HandCount <= 1 && TurnOnce("club-empty"): await Block(3); break;
+            case "IRON_CLUB" when nativeTriggered && TurnOnce("club-block"): await Block(4); break;
             case "VITRUVIAN_MINION" when card.Id.Entry.Contains("MINION", StringComparison.Ordinal) && CombatOnce("first-minion"):
                 await PlayerCmd.GainStars(1, Owner); break;
             case "DAUGHTER_OF_THE_WIND" when attack && CountTurn("consecutive-attacks") == 3 && TurnOnce("wind-chain"):
@@ -205,14 +210,14 @@ public abstract partial class CatalogRelic
         await Native.AfterCardGeneratedForCombat(card, creator);
         if (creator == Owner && _nativeFlashes > flash)
         {
-            if (MaterialId == "REGALITE" && card.Pool is MegaCrit.Sts2.Core.Models.CardPools.ColorlessCardPool) await Block(2);
+            if (MaterialId == "REGALITE" && card.Pool is MegaCrit.Sts2.Core.Models.CardPools.ColorlessCardPool) await Block(4);
             if (MaterialId == "FERTILIZER" && TurnOnce("fertilizer")) await Block(2);
         }
     }
 
     public override async Task AfterCardExhausted(PlayerChoiceContext context, CardModel card, bool causedByEthereal)
     {
-        if (card.Owner == Owner && MaterialId == "FORGOTTEN_SOUL" && IncTurn("exhausted") == 3)
+        if (card.Owner == Owner && MaterialId == "FORGOTTEN_SOUL" && IncTurn("exhausted") % 3 == 0)
             await DamageAll(2, context);
         else
         {
@@ -228,7 +233,7 @@ public abstract partial class CatalogRelic
                 case "CHARONS_ASHES" when card.DeckVersion != null && TurnOnce("base-exhaust"):
                     await DamageOne(2, Lowest, context); break;
                 case "BURNING_STICKS" when HandCount > oldHand: MarkHandTail(HandCount - oldHand); break;
-                case "TOASTY_MITTENS" when _turnFlags.Contains("toast-choosing") && card.DeckVersion != null && CombatOnce("toast-real"):
+                case "TOASTY_MITTENS" when _turnFlags.Remove("toast-choosing"):
                     await Block(4); break;
             }
         }
@@ -246,8 +251,9 @@ public abstract partial class CatalogRelic
             Progress[1] |= card.Type switch { CardType.Attack => 1, CardType.Skill => 2, CardType.Power => 4, _ => 0 };
             if (_nativeFlashes > before)
             {
-                if (Progress[1] == 7) await PlayerCmd.GainGold(25, Owner);
+                bool allTypes = Progress[1] == 7;
                 Progress[1] = 0;
+                if (allTypes) await Heal(5);
             }
         }
     }

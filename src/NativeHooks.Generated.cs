@@ -37,9 +37,7 @@ public abstract partial class CatalogRelic
     public override Task AfterModifyingRewards() => Native.AfterModifyingRewards();
     public override Task AfterPotionDiscarded(PotionModel potion) => Native.AfterPotionDiscarded(potion);
     public override Task AfterPotionProcured(PotionModel potion) => Native.AfterPotionProcured(potion);
-    public override Task BeforeCombatRewardOffered(RewardsSet rewards, CombatRoom room) => Native.BeforeCombatRewardOffered(rewards, room);
     public override Task BeforePowerAmountChanged(PowerModel power, decimal amount, Creature target, Creature? applier, CardModel? cardSource) => Native.BeforePowerAmountChanged(power, amount, target, applier, cardSource);
-    public override decimal ModifyBlockMultiplicative(Creature target, decimal block, ValueProp props, CardModel? cardSource, CardPlay? cardPlay) => Native.ModifyBlockMultiplicative(target, block, props, cardSource, cardPlay);
     public override int ModifyCardPlayCount(CardModel card, Creature? target, int playCount) => Native.ModifyCardPlayCount(card, target, playCount);
     public override CardCreationOptions ModifyCardRewardCreationOptions(Player player, CardCreationOptions options) => Native.ModifyCardRewardCreationOptions(player, options);
     public override decimal ModifyDamageMultiplicative(Creature? target, decimal amount, ValueProp props, Creature? dealer, CardModel? cardSource, CardPlay? cardPlay) => Native.ModifyDamageMultiplicative(target, amount, props, dealer, cardSource, cardPlay);

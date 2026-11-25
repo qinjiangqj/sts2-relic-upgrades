@@ -41,11 +41,6 @@ public abstract partial class CatalogRelic
     public override async Task BeforeCombatStart()
     {
         if (!_combat) StartCombatTracking();
-        if (MaterialId == "PUMPKIN_CANDLE" && Progress[2] > 0)
-        {
-            Progress[2] = 0;
-            await Block(5);
-        }
         if (MaterialId == "REGAL_PILLOW" && Progress[2] > 0 ||
             MaterialId == "STONE_HUMIDIFIER" && Progress[2] > 0)
         {
@@ -84,36 +79,47 @@ public abstract partial class CatalogRelic
             return;
         }
 
-        if (OurSide(side, participants) && MaterialId == "CANDELABRA" && Turn == 2)
-            await PlayerCmd.GainEnergy(1, Owner);
-        else if (OurSide(side, participants) && MaterialId == "DIAMOND_DIADEM" && Turn == 1)
+        if (OurSide(side, participants) && MaterialId == "DIAMOND_DIADEM" && Turn == 1)
         {
             await Block(18);
             await Apply<BlurPower>(Me, 1);
         }
-        else
+        else if (MaterialId != "PAELS_TEARS")
             await Native.AfterSideTurnStart(side, participants, combatState);
         if (!OurSide(side, participants)) return;
         switch (MaterialId)
         {
             case "SAI" when Turn >= 2 && _combatFlags.Remove("sai-no-attack"): await Block(2); break;
-            case "DIAMOND_DIADEM" when Turn == 2 && Me.Block == 0: await Block(5); break;
-            case "HAPPY_FLOWER" when _nativeFlashes > flash && CombatOnce("flower"): await Block(3); break;
+            case "DIAMOND_DIADEM" when Turn == 2: await Block(5); break;
+            case "RED_SKULL" when _combatFlags.Contains("skull-low"): await Block(3); break;
+            case "HAPPY_FLOWER" when _nativeFlashes > flash && CombatOnce("flower"): await PlayerCmd.GainEnergy(1, Owner); break;
             case "CANDELABRA" when Turn == 2 && _combatFlags.Contains("spent-one"): await Draw(1); break;
             case "SEAL_OF_GOLD" when _nativeFlashes > flash && CombatOnce("gold-seal"): await Block(4); break;
-            case "PAELS_TEARS" when _nativeFlashes > flash && CombatOnce("tear-guard"): await Block(4); break;
+            case "PAELS_TEARS" when _combatFlags.Remove("tears-energy"):
+                bool firstTears = CombatOnce("tears-first");
+                Flash();
+                await PlayerCmd.GainEnergy(firstTears ? 3 : 2, Owner);
+                if (firstTears) await Draw(1);
+                break;
+            case "PUMPKIN_CANDLE" when Turn == 1 && Progress[2] > 0:
+                Progress[2] = 0;
+                await PlayerCmd.GainEnergy(1, Owner);
+                break;
             case "PANTOGRAPH" when Turn == 1 && _combatFlags.Contains("boss-low") &&
                  Owner.RunState.CurrentRoom?.RoomType == RoomType.Boss: await Block(6); break;
             case "SLING_OF_COURAGE" when Turn == 1 && Low && Owner.RunState.CurrentRoom?.RoomType == RoomType.Elite: await Block(6); break;
             case "BOOMING_CONCH" when Turn == 2 && Owner.RunState.CurrentRoom?.RoomType == RoomType.Elite && Enemies.Count >= 2: await Block(5); break;
-            case "BREAD" or "VERY_HOT_COCOA" when Turn == 2 && (MaterialId == "BREAD" || _combatFlags.Contains("spent-one")):
-                await Draw(1); break;
+            case "BREAD" when Turn == 2: await Draw(1); break;
+            case "VERY_HOT_COCOA" when Turn == 2 && _combatFlags.Contains("spent-one"):
+                await PlayerCmd.GainEnergy(1, Owner);
+                await Draw(1);
+                break;
             case "PAELS_FLESH" when Turn == 3 && _combatFlags.Contains("spent-one") && _combatFlags.Contains("spent-two"):
                 await Draw(1); break;
             case "VENERABLE_TEA_SET" when Turn == 2 && _combatFlags.Contains("tea"): await Block(4); break;
             case "ART_OF_WAR" when _combatFlags.Remove("art-block"): await Block(3); break;
             case "POCKETWATCH" when _combatFlags.Remove("watch-block"): await Block(3); break;
-            case "AKABEKO" when Turn == 2 && !_combatFlags.Contains("attacked-one"): await Apply<VigorPower>(Me, 3); break;
+            case "AKABEKO" when Turn == 2 && !_combatFlags.Contains("attacked-one"): await Block(8); break;
             case "EMOTION_CHIP" when _combatFlags.Remove("chip-guard"):
                 if (DistinctOrbs() >= 2 && CombatOnce("chip")) await Block(3);
                 break;
@@ -129,14 +135,18 @@ public abstract partial class CatalogRelic
             return;
         }
         int flash = _nativeFlashes;
-        if (IsMe(player) && MaterialId == "TOASTY_MITTENS") _turnFlags.Add("toast-choosing");
+        if (IsMe(player) && MaterialId == "TOASTY_MITTENS")
+        {
+            if (HandCount == 0) return;
+            _turnFlags.Add("toast-choosing");
+        }
         await Native.AfterPlayerTurnStart(choiceContext, player);
         if (!IsMe(player)) return;
         _turnFlags.Remove("toast-choosing");
 
         switch (MaterialId)
         {
-            case "BAG_OF_PREPARATION" when Turn == 2 && _combatFlags.Contains("empty-one"): await Draw(1, choiceContext); break;
+            case "BAG_OF_PREPARATION" when Turn == 2: await Draw(1, choiceContext); break;
             case "RING_OF_THE_SNAKE" when Turn == 2 && _combatFlags.Contains("discarded-one"): await Draw(1, choiceContext); break;
             case "MERCURY_HOURGLASS" when Turn == 3: await DamageAll(3, choiceContext); break;
             case "STURDY_CLAMP" when Turn == 2 && _combatFlags.Contains("clamp-ten"): await Block(4); break;
@@ -158,7 +168,7 @@ public abstract partial class CatalogRelic
     {
         bool bathGuard = IsMe(player) && Turn == 1 && Me.CurrentHp * 4 <= Me.MaxHp;
         await Native.AfterPlayerTurnStartLate(choiceContext, player);
-        if (MaterialId == "BATH_TOWEL" && bathGuard) await Block(4);
+        if (MaterialId == "BATH_TOWEL" && bathGuard) await Heal(8);
     }
 
     public override async Task BeforeSideTurnEndVeryEarly(PlayerChoiceContext choiceContext, CombatSide side, IEnumerable<Creature> participants)
@@ -188,11 +198,10 @@ public abstract partial class CatalogRelic
         {
             if (Turn == 6) await DamageAll(42, choiceContext);
         }
-        else if (MaterialId != "PAELS_TEARS" || Energy == 1)
+        else if (MaterialId != "PAELS_TEARS")
             await Native.BeforeSideTurnEnd(choiceContext, side, participants);
 
         if (Energy == 0 && Turn is 1 or 2) _combatFlags.Add(Turn == 1 ? "spent-one" : "spent-two");
-        if (hand == 0 && Turn == 1) _combatFlags.Add("empty-one");
 
         switch (MaterialId)
         {
@@ -203,7 +212,8 @@ public abstract partial class CatalogRelic
             case "SCREAMING_FLAGON" when hand == 0 && CountTurn("plays") >= 5 && CombatOnce("empty-flagon"): await Block(5); break;
             case "OBSIDIAN_VICE" when hand >= 4: await DamageOne(1, RandomEnemy, choiceContext); break;
             case "ICE_CREAM" when Energy >= 2 && CombatOnce("ice-unused"): _combatFlags.Add("ice-draw"); break;
-            case "PAELS_BLOOD" when Turn >= 3 && hand == 0 && CombatOnce("blood-empty"): _combatFlags.Add("blood-draw"); break;
+            case "PAELS_TEARS" when Energy == 1: _combatFlags.Add("tears-energy"); break;
+            case "PAELS_BLOOD" when Turn >= 3 && hand <= Turn && CombatOnce("blood-draw-first"): _combatFlags.Add("blood-draw"); break;
             case "POCKETWATCH" when CountTurn("plays") <= 1: _combatFlags.Add("watch-block"); break;
             case "ART_OF_WAR" when CountTurn("attacks") == 0 && CountTurn("skills") >= 2: _combatFlags.Add("art-block"); break;
             case "SAI" when CountTurn("attacks") == 0: _combatFlags.Add("sai-no-attack"); break;
@@ -269,7 +279,7 @@ public abstract partial class CatalogRelic
     public override decimal ModifyHandDraw(Player player, decimal count)
     {
         decimal result = Native.ModifyHandDraw(player, count);
-        if (IsMe(player) && MaterialId == "PENDULUM" && result > count && HandCount <= 2)
+        if (IsMe(player) && MaterialId == "PENDULUM" && result > count && Turn % 2 == 1)
             return result + 1;
         return result;
     }
