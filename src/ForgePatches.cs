@@ -61,9 +61,9 @@ internal static class ForgeVictoryPatch
 
         int amount = ForgeRules.CombatDrop(state.Rng.Seed, state.TotalFloor, minimum);
         ForgeState.Award(state, amount, chapterBoss);
-        ForgeInterface.ShowNotice(ForgeText.Pick(
-            $"锻造碎片 +{amount} · 现有 {ForgeState.Fragments(state)}",
-            $"Forge fragments +{amount} · {ForgeState.Fragments(state)} total"));
+        ForgeState.RecordCombatDrop(state, room.Encounter.Id.Entry, amount);
+        if (!room.Encounter.ShouldGiveRewards && amount > 0)
+            ForgeFragmentReceipt.ShowNotice(amount, ForgeState.Fragments(state));
     }
 }
 
