@@ -13,6 +13,8 @@ namespace AaaCode.RelicForge;
 
 internal sealed class ForgeFragmentReward(Player player, int amount) : CustomReward(player)
 {
+    internal const string FragmentTexturePath = "res://aaacode_relic_forge/art/ui/forge_fragments.res";
+
     [CustomEnum]
     public static RewardType ForgeFragments = default;
 
@@ -47,7 +49,7 @@ internal sealed class ForgeFragmentReward(Player player, int amount) : CustomRew
         var icon = new TextureRect
         {
             Name = "ForgeIcon",
-            Texture = ResourceLoader.Load<Texture2D>("res://aaacode_relic_forge/art/ui/forge_fragments.res"),
+            Texture = ResourceLoader.Load<Texture2D>(FragmentTexturePath),
             ExpandMode = TextureRect.ExpandModeEnum.IgnoreSize,
             StretchMode = TextureRect.StretchModeEnum.KeepAspectCentered,
             MouseFilter = Control.MouseFilterEnum.Ignore,

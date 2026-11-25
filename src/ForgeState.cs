@@ -8,6 +8,8 @@ internal static class ForgeState
     private static readonly SavedSpireField<RunState, int> FragmentsField = new(() => 0, "AAcodeRelicForgeFragments");
     private static readonly SavedSpireField<RunState, int> PaidFloorField = new(() => -1, "AAcodeRelicForgePaidFloor");
     private static readonly SavedSpireField<RunState, int> OfferField = new(() => 0, "AAcodeRelicForgeChapterOffer");
+
+    internal static event Action<RunState>? FragmentsChanged;
     // Touch these fields during mod initialization, before any run is loaded.
     internal static void Register() => _ = FragmentsField;
 
@@ -28,6 +30,7 @@ internal static class ForgeState
 
         FragmentsField.Set(state, Fragments(state) + amount);
         PaidFloorField.Set(state, state.TotalFloor);
+        FragmentsChanged?.Invoke(state);
         return true;
     }
 
@@ -35,6 +38,10 @@ internal static class ForgeState
     {
         if (cost > Fragments(state))
             throw new InvalidOperationException("Insufficient forge fragments.");
-        FragmentsField.Set(state, Fragments(state) - cost);
+        if (cost != 0)
+        {
+            FragmentsField.Set(state, Fragments(state) - cost);
+            FragmentsChanged?.Invoke(state);
+        }
     }
 }
