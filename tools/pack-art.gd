@@ -41,10 +41,14 @@ func _initialize() -> void:
 				not add_texture(packer, make_outline(icon), scratch, "outline", name):
 			fail("Could not add textures for " + filename)
 			return
+	var fragments := Image.load_from_file(art_dir.path_join("ui/forge_fragments.png"))
+	if not correct_image(fragments, [96, 96]) or not add_texture(packer, fragments, scratch, "ui", "forge_fragments"):
+		fail("Could not add the forge fragment icon.")
+		return
 	if packer.flush() != OK:
 		fail("Could not finalize the PCK.")
 		return
-	print("[RelicForgeArt] Packed %d relics and %d Godot textures." % [expected, expected * 3])
+	print("[RelicForgeArt] Packed %d relics and %d Godot textures." % [expected, expected * 3 + 1])
 	quit()
 
 func png_files(directory: String) -> PackedStringArray:

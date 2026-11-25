@@ -34,36 +34,14 @@ internal static class ForgeVictoryPatch
 {
     private static void Postfix(IRunState runState, CombatRoom room, ref Task __result)
     {
-        if (runState is RunState state && ForgeService.IsSupported(state))
-            __result = AwardAfterVictory(__result, state, room);
+        if (runState is RunState state && ForgeService.IsSupported(state) && ForgeRules.IsChapterBoss(state, room))
+            __result = OpenChapterOfferAfterVictory(__result, state);
     }
 
-    private static async Task AwardAfterVictory(Task original, RunState state, CombatRoom room)
+    private static async Task OpenChapterOfferAfterVictory(Task original, RunState state)
     {
         await original;
-        if (state.TotalFloor < 1 || ForgeState.LastPaidFloor(state) == state.TotalFloor)
-            return;
-
-        int nextAct = state.CurrentActIndex + 1;
-        bool chapterBoss = room.RoomType == RoomType.Boss &&
-            nextAct is >= ForgeRules.FirstChapter and <= ForgeRules.LastChapter &&
-            nextAct < state.Acts.Count;
-
-        int minimum = room.RoomType switch
-        {
-            RoomType.Monster => 0,
-            RoomType.Elite => 1,
-            RoomType.Boss when chapterBoss => 2,
-            _ => -1,
-        };
-        if (minimum < 0)
-            return;
-
-        int amount = ForgeRules.CombatDrop(state.Rng.Seed, state.TotalFloor, minimum);
-        ForgeState.Award(state, amount, chapterBoss);
-        ForgeState.RecordCombatDrop(state, room.Encounter.Id.Entry, amount);
-        if (!room.Encounter.ShouldGiveRewards && amount > 0)
-            ForgeFragmentReceipt.ShowNotice(amount, ForgeState.Fragments(state));
+        ForgeState.OpenChapterOffer(state);
     }
 }
 

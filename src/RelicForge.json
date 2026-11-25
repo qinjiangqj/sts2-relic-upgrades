@@ -1,9 +1,9 @@
 {
   "id": "RelicForge",
   "name": "遗物升级 / Relic Upgrades",
-  "description": "v0.114.0.1。战后碎片自动入账，在火堆或第一、第二幕的先古结算后升级遗物。",
+  "description": "v0.114.0.3。在战后搜刮时领取锻造碎片，在火堆或第一、第二幕的先古结算后升级遗物。",
   "author": "Relic Upgrades",
-  "version": "0.114.0-1",
+  "version": "0.114.0-3",
   "has_dll": true,
   "has_pck": true,
   "min_game_version": "0.114.0",

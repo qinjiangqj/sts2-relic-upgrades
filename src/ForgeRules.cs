@@ -1,3 +1,6 @@
+using MegaCrit.Sts2.Core.Rooms;
+using MegaCrit.Sts2.Core.Runs;
+
 namespace AaaCode.RelicForge;
 
 internal static class ForgeRules
@@ -5,6 +8,13 @@ internal static class ForgeRules
     internal const int CampCost = 4;
     internal const int FirstChapter = 1;
     internal const int LastChapter = 2;
+
+    internal static bool IsChapterBoss(RunState state, CombatRoom room)
+    {
+        int nextAct = state.CurrentActIndex + 1;
+        return room.RoomType == RoomType.Boss && nextAct is >= FirstChapter and <= LastChapter &&
+            nextAct < state.Acts.Count;
+    }
 
     internal static int CombatDrop(ulong runSeed, int floor, int minimum)
     {
