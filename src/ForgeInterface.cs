@@ -1,7 +1,6 @@
 using BaseLib.Abstracts;
 using Godot;
 using MegaCrit.Sts2.Core.Entities.Players;
-using MegaCrit.Sts2.Core.Helpers;
 using MegaCrit.Sts2.Core.Localization;
 using MegaCrit.Sts2.Core.Nodes;
 using MegaCrit.Sts2.Core.Runs;
@@ -11,7 +10,7 @@ namespace AaaCode.RelicForge;
 internal sealed class ForgeRestSiteOption(Player owner) : CustomRestSiteOption(owner)
 {
     public override string OptionId => "AAACODE_RELIC_FORGE";
-    public override string CustomIconPath => ImageHelper.GetImagePath("ui/rest_site/option_smith.png");
+    public override string CustomIconPath => "res://aaacode_relic_forge/art/ui/forge_rest_site.res";
     public override bool IsEnabled => Owner.RunState is RunState state &&
         ForgeState.Fragments(state) >= ForgeRules.CampCost && ForgeService.GetChoices(Owner).Count > 0;
 

@@ -45,10 +45,18 @@ func _initialize() -> void:
 	if not correct_image(fragments, [96, 96]) or not add_texture(packer, fragments, scratch, "ui", "forge_fragments"):
 		fail("Could not add the forge fragment icon.")
 		return
+	var rest_site := Image.load_from_file(art_dir.path_join("ui/forge_rest_site.png"))
+	if rest_site == null or rest_site.is_empty():
+		fail("Could not read the relic upgrade rest-site artwork.")
+		return
+	rest_site.resize(512, 338, Image.INTERPOLATE_LANCZOS)
+	if not add_texture(packer, rest_site, scratch, "ui", "forge_rest_site"):
+		fail("Could not add the relic upgrade rest-site artwork.")
+		return
 	if packer.flush() != OK:
 		fail("Could not finalize the PCK.")
 		return
-	print("[RelicForgeArt] Packed %d relics and %d Godot textures." % [expected, expected * 3 + 1])
+	print("[RelicForgeArt] Packed %d relics and %d Godot textures." % [expected, expected * 3 + 2])
 	quit()
 
 func png_files(directory: String) -> PackedStringArray:

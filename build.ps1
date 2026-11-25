@@ -39,7 +39,8 @@ if ($LASTEXITCODE -ne 0) { throw "Build failed with exit code $LASTEXITCODE." }
 $package = Join-Path $PSScriptRoot 'Mod\RelicForge'
 New-Item -Path $package -ItemType Directory -Force | Out-Null
 $artPack = Get-Item -LiteralPath (Join-Path $package 'RelicForge.pck') -ErrorAction SilentlyContinue
-$artInputs = Get-Item -LiteralPath (Join-Path $PSScriptRoot 'tools\pack-art.gd'), (Join-Path $PSScriptRoot 'art\ui\forge_fragments.png')
+$artInputs = Get-Item -LiteralPath (Join-Path $PSScriptRoot 'tools\pack-art.gd'),
+    (Join-Path $PSScriptRoot 'art\ui\forge_fragments.png'), (Join-Path $PSScriptRoot 'art\ui\forge_rest_site.png')
 if (-not $artPack -or ($artInputs.LastWriteTimeUtc | Where-Object { $_ -gt $artPack.LastWriteTimeUtc })) {
     & (Join-Path $PSScriptRoot 'tools\Pack-Art.ps1') -GameDir $GameDir
 }
